@@ -17,13 +17,14 @@
       background: #f1f5f9;
     }
 
+ 
     .header {
       position: sticky;
       top: 0;
       background: #46516a;
       padding: 15px 25px;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
       z-index: 1000;
     }
@@ -31,17 +32,8 @@
     .header h1 a {
       text-decoration: none;
       padding: 8px 16px;
-      background: #46516a;
       color: #fff;
-      border-radius: 6px;
       font-weight: bold;
-      transition: 0.3s;
-      
-    }
-
-    .header h1 a:hover {
-      background: #585a5e;
-      color: #000;
     }
 
     .menu-toggle {
@@ -53,44 +45,22 @@
       cursor: pointer;
     }
 
-    nav {
+     
+   
+    main {
       display: flex;
-      gap: 10px;
-      text-align: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 40px;
     }
 
-    nav a {
-      text-decoration: none;
-      padding: 8px 16px;
-      background: #46516a;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: 0.3s;
-      
-    }
-
-    nav a:hover {
-      background: #585a5e;
-      color: #000;
-    }
-
-  
-    
     
     .trimestres {
       width: 100%;
-      max-width: 400px;
-      
+      max-width: 350px;
       background: #46516a;
       padding: 30px;
-     
-    }
-
-    .trimestres h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #0f172a;
+      border-radius: 10px;
     }
 
     .trimestres a {
@@ -98,20 +68,41 @@
       margin-bottom: 15px;
       padding: 15px;
       text-align: center;
-      background: #fff;
-      color: #0f172a;
+      background: #000;
+      color: #fff;
       text-decoration: none;
       font-size: 18px;
       font-weight: bold;
-      
+      border-radius: 50px;
       transition: 0.3s;
     }
 
     .trimestres a:hover {
-      background: rgb(91, 94, 96);
+      background: #d3e412;
       color: #000;
     }
 
+    /* ===== DADOS DO ALUNO ===== */
+    .dados {
+      flex: 1;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .dados h2 {
+      margin-bottom: 15px;
+      color: #0f172a;
+    }
+
+    .dados p {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #334155;
+    }
+
+    /* ===== RESPONSIVO ===== */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
@@ -132,6 +123,11 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      main {
+        flex-direction: column;
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -142,24 +138,37 @@
   <h1><a href="index.html">HOME</a></h1>
   <button class="menu-toggle">☰</button>
 
-  <nav id="menu">
-    <a href="pag/t1.html">T1</a>
-    <a href="pag/t2.html">T2</a>
-    <a href="pag/t3.html">T3</a>
-    <a href="pag/t4.html">T4</a>
-    <a href="pag/t5.html">T5</a>
-    <a href="pag/t6.html">T6</a>
-  </nav>
+  
 </header>
 
 <main>
-  <div class="trimestres">
-    
 
+  <!-- TRIMESTRES -->
+  <div class="trimestres">
     <a href="pag/trimestre1.html">I Trimestre</a>
     <a href="pag/trimestre2.html">II Trimestre</a>
     <a href="pag/trimestre3.html">III Trimestre</a>
   </div>
+
+  <!-- DADOS DO ALUNO -->
+  <div class="dados">
+    <h2>Trabalho de Programação (TLP)</h2>
+
+    <p><strong>Nome:</strong> Nunes Daniel Itumbo Paulo</p>
+    <p><strong>Nº:</strong> 29</p>
+    <p><strong>Sala:</strong> 19</p>
+    <p><strong>Classe:</strong> 13ª</p>
+
+    <br>
+
+    <p>
+      Este site foi desenvolvido como parte do trabalho prático da disciplina
+      <strong>Técnicas de Linguagem de Programação (TLP)</strong>,
+      com o objetivo de aplicar conhecimentos de HTML, CSS e organização
+      de conteúdos web.
+    </p>
+  </div>
+
 </main>
 
 <script>
