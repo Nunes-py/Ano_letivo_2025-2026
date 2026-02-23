@@ -3,82 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Trimestre</title>
-
+  <title>Serviços | AMP SoluTech</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
+    :root{
+      --azul-escuro:#0b1f3a;
+      --azul:#1f4fd8;
+      --preto:#0a0a0a;
+      --cinza:#eef2f6;
+      --branco:#ffffff;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+    body{background:var(--cinza);color:var(--preto)}
+
+    header{
+      background:linear-gradient(135deg,var(--azul-escuro),var(--preto));
+      color:var(--branco);
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    header h1{font-size:1.6rem}
+    nav a{
+      color:var(--branco);
+      text-decoration:none;
+      margin-left:20px;
+      font-size:0.95rem;
+      transition:0.3s;
+    }
+    nav a:hover{color:var(--azul)}
+
+    .banner{
+      background:linear-gradient(rgba(11,31,58,0.85),rgba(0,0,0,0.85)), url('../files/Blue\ Grey\ Minimalist\ Modern\ Business\ Card\ .png') center/cover;
+      color:var(--branco);
+      padding:90px 28%;
+      text-align:center;
+    }
+    .banner h2{font-size:2.6rem;margin-bottom:15px}
+    .banner p{max-width:750px;margin:auto;font-size:1.1rem;line-height:1.6}
+
+    .services{
+      padding:80px 8%;
+      background:var(--branco);
+    }
+    .services h3{text-align:center;font-size:2rem;margin-bottom:50px}
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+    .card{
+      background:var(--cinza);
+      padding:35px 30px;
+      border-radius:14px;
+      transition:0.3s;
+    }
+    .card:hover{transform:translateY(-10px)}
+    .card h4{margin-bottom:15px;color:var(--azul-escuro);font-size:1.2rem}
+    .card p{font-size:0.95rem;line-height:1.6;margin-bottom:15px}
+    .card ul{padding-left:18px;font-size:0.9rem;line-height:1.6}
+
+    .cta{
+      background:linear-gradient(135deg,var(--azul-escuro),var(--azul));
+      color:var(--branco);
+      padding:70px 8%;
+      text-align:center;
+    }
+    .cta h3{font-size:2rem;margin-bottom:15px}
+    .cta p{font-size:1.05rem;margin-bottom:25px}
+    .cta a{
+      padding:14px 35px;
+      border:none;
+      border-radius:8px;
+      background:var(--branco);
+      color:var(--azul-escuro);
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .cta button:hover{background:var(--cinza)}
+
+    footer{
+      background:var(--preto);
+      color:var(--branco);
+      text-align:center;
+      padding:25px 10px;
+      font-size:0.9rem;
     }
 
-    body {
-      background: #f1f5f9;
+    @media(max-width:768px){
+      header{flex-direction:column;gap:15px}
+      .banner h2{font-size:2.1rem}
     }
-
-    
-    .header {
-      position: sticky;
-      top: 0;
-      
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
-
-    .header h1 a {
-      color: #010101;
-      text-decoration: none;
-    }
-
-    .header h1 a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
-
-    nav {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      
-    }
-
-    nav a {
-      text-decoration: none;
-      padding: 8px 16px;
-      background: #1e293b;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: bold;
-      
-    }
-
-    nav a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
-
-  
   </style>
 </head>
-
 <body>
 
-<header class="header">
-  <h1><a href="../index.html">HOME</a></h1>
-
+<header>
+  <h1>AMP SoluTech</h1>
   <nav>
-    <a href="trimestre1.html">Iº Trimestre.</a>
-    <a href="trimestre2.html">IIº Trimestre.</a>
-    <a href="trimestre3.html">IIIº Trimestre.</a>
+    <a href="../index.html">Início</a>
+    <a href="trimestre1.html">Iº TRIMESTRE</a>
+    <a href="trimestre2.html">IIº TRIMESTRE</a>
+    <a href="trimestre3.html">IIIº TRIMESTRE</a>
+     
   </nav>
 </header>
 
-<main>
+<section class="banner">
+  <h2>Nossos Serviços</h2>
+  <p>Soluções completas em Marketing Digital e Programação Web para levar o seu negócio ao próximo nível.</p>
+</section>
 
+<section class="services">
+  <h3>O Que Fazemos</h3>
+  <div class="service-grid">
+
+    <div class="card">
+      <h4>Marketing Digital</h4>
+      <p>Planeamento estratégico focado em crescimento e conversão.</p>
+      <ul>
+        <li>Gestão de Redes Sociais</li>
+        <li>Tráfego Pago (Facebook & Google Ads)</li>
+        <li>SEO & Posicionamento</li>
+        <li>Email Marketing</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>Programação Web</h4>
+      <p>Desenvolvimento de soluções web modernas e escaláveis.</p>
+      <ul>
+        <li>Sites Institucionais</li>
+        <li>Sistemas Web</li>
+        <li>Lojas Online</li>
+        <li>APIs & Integrações</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>UI/UX & Design</h4>
+      <p>Interfaces modernas focadas na melhor experiência do utilizador.</p>
+      <ul>
+        <li>Design Responsivo</li>
+        <li>Identidade Visual</li>
+        <li>Prototipagem</li>
+        <li>Branding Digital</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>Consultoria Digital</h4>
+      <p>Análise estratégica e soluções personalizadas.</p>
+      <ul>
+        <li>Planeamento Digital</li>
+        <li>Automação de Processos</li>
+        <li>Transformação Digital</li>
+        <li>Otimização de Sistemas</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta">
+  <h3>Pronto para crescer no digital?</h3>
+  <p>Entre em contacto com a AMP SoluTech e solicite uma solução personalizada.</p>
+  <a class="button" href="contacto.html">Falar Connosco</a>
+  
+</section>
+
+<footer>
+  © 2026 AMP SoluTech • Marketing Digital & Programação Web
+</footer>
+
+<script>
+  console.log('Página Serviços carregada com sucesso');
+</script>
 
 </body>
 </html>
+
