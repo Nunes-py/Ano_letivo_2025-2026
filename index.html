@@ -36,25 +36,27 @@
     }
 
     main{
-      display:flex;
-      gap:30px;
       padding:40px;
+      display:flex;
+      flex-direction:column;
+      gap:30px;
     }
 
     .apresentacao{
-      width:100%;
-      max-width:300px;
       background:#ffffff;
       padding:25px;
       border-radius:12px;
       box-shadow:0 4px 12px rgba(0,0,0,0.12);
       border-left:6px solid #46516a;
       text-align:center;
+      max-width:900px;
+      margin:0 auto;
     }
 
     .apresentacao img{
       width:100%;
-      height:180px;
+      max-width:600px;
+      height:200px;
       object-fit:cover;
       border-radius:10px;
       margin-bottom:15px;
@@ -66,9 +68,14 @@
     }
 
     .apresentacao p{
-      font-size:15px;
+      font-size:16px;
       line-height:1.6;
       color:#334155;
+    }
+
+    .conteudo-inferior{
+      display:flex;
+      gap:30px;
     }
 
     .trimestres{
@@ -119,13 +126,15 @@
 
     @media(max-width:768px){
       main{
-        flex-direction:column;
         padding:20px;
       }
 
-      .apresentacao,
-      .trimestres{
-        max-width:100%;
+      .conteudo-inferior{
+        flex-direction:column;
+      }
+
+      .apresentacao img{
+        height:180px;
       }
     }
   </style>
@@ -148,28 +157,32 @@
     </p>
   </div>
 
-  <div class="trimestres">
-    <a href="pag/trimestre1.html">I Trimestre</a>
-    <a href="pag/trimestre2.html">II Trimestre</a>
-    <a href="pag/trimestre3.html">III Trimestre</a>
-  </div>
+  <div class="conteudo-inferior">
 
-  <div class="dados">
-    <h2>Trabalho de Programação (TLP)</h2>
+    <div class="trimestres">
+      <a href="pag/trimestre1.html">I Trimestre</a>
+      <a href="pag/trimestre2.html">II Trimestre</a>
+      <a href="pag/trimestre3.html">III Trimestre</a>
+    </div>
 
-    <p><strong>Nome:</strong> Nunes Daniel Itumbo Paulo</p>
-    <p><strong>Nº:</strong> 29</p>
-    <p><strong>Sala:</strong> 19</p>
-    <p><strong>Classe:</strong> 13ª</p>
+    <div class="dados">
+      <h2>Trabalho de Programação (TLP)</h2>
 
-    <br>
+      <p><strong>Nome:</strong> Nunes Daniel Itumbo Paulo</p>
+      <p><strong>Nº:</strong> 29</p>
+      <p><strong>Sala:</strong> 19</p>
+      <p><strong>Classe:</strong> 13ª</p>
 
-    <p>
-      Este site foi desenvolvido como parte do trabalho prático da disciplina
-      <strong>Técnicas de Linguagem de Programação (TLP)</strong>,
-      com o objetivo de aplicar conhecimentos de HTML, CSS e organização
-      de conteúdos web.
-    </p>
+      <br>
+
+      <p>
+        Este site foi desenvolvido como parte do trabalho prático da disciplina
+        <strong>Técnicas de Linguagem de Programação (TLP)</strong>,
+        com o objetivo de aplicar conhecimentos de HTML, CSS e organização
+        de conteúdos web.
+      </p>
+    </div>
+
   </div>
 
 </main>
