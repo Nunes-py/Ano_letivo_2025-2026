@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Serviços | AMP SoluTech</title>
+
   <style>
     :root{
       --azul-escuro:#0b1f3a;
@@ -12,9 +13,20 @@
       --cinza:#eef2f6;
       --branco:#ffffff;
     }
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-    body{background:var(--cinza);color:var(--preto)}
 
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    body{
+      background:var(--cinza);
+      color:var(--preto);
+    }
+
+    /* ===== HEADER ===== */
     header{
       background:linear-gradient(135deg,var(--azul-escuro),var(--preto));
       color:var(--branco);
@@ -26,7 +38,9 @@
       top:0;
       z-index:1000;
     }
+
     header h1{font-size:1.6rem}
+
     nav a{
       color:var(--branco);
       text-decoration:none;
@@ -34,58 +48,139 @@
       font-size:0.95rem;
       transition:0.3s;
     }
+
     nav a:hover{color:var(--azul)}
 
+    /* ===== BANNER / SIDEBAR ===== */
     .banner{
-      background:linear-gradient(rgba(11,31,58,0.85),rgba(0,0,0,0.85)), url('../files/Blue\ Grey\ Minimalist\ Modern\ Business\ Card\ .png') center/cover;
+      background:
+        linear-gradient(rgba(11,31,58,0.85),rgba(0,0,0,0.85)),
+        url('../files/Blue Grey Minimalist Modern Business Card .png') center/cover;
       color:var(--branco);
       padding:90px 28%;
       text-align:center;
     }
-    .banner h2{font-size:2.6rem;margin-bottom:15px}
-    .banner p{max-width:750px;margin:auto;font-size:1.1rem;line-height:1.6}
 
+    .banner h2{
+      font-size:2.6rem;
+      margin-bottom:15px;
+    }
+
+    .banner p{
+      max-width:750px;
+      margin:auto;
+      font-size:1.1rem;
+      line-height:1.6;
+    }
+
+    /* ===== SECÇÃO DAS 3 IMAGENS ===== */
+    .images-section{
+      background:var(--branco);
+      padding:60px 8%;
+    }
+
+    .images-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+    }
+
+    .image-box{
+      border:3px solid var(--azul-escuro);
+      border-radius:12px;
+      padding:15px;
+      background:var(--cinza);
+      text-align:center;
+    }
+
+    .image-box img{
+      width:100%;
+      height:auto;
+      border-radius:8px;
+      display:block;
+    }
+
+    /* ===== SERVIÇOS ===== */
     .services{
       padding:80px 8%;
       background:var(--branco);
     }
-    .services h3{text-align:center;font-size:2rem;margin-bottom:50px}
+
+    .services h3{
+      text-align:center;
+      font-size:2rem;
+      margin-bottom:50px;
+    }
+
     .service-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
       gap:30px;
     }
+
     .card{
       background:var(--cinza);
       padding:35px 30px;
       border-radius:14px;
       transition:0.3s;
     }
-    .card:hover{transform:translateY(-10px)}
-    .card h4{margin-bottom:15px;color:var(--azul-escuro);font-size:1.2rem}
-    .card p{font-size:0.95rem;line-height:1.6;margin-bottom:15px}
-    .card ul{padding-left:18px;font-size:0.9rem;line-height:1.6}
 
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card h4{
+      margin-bottom:15px;
+      color:var(--azul-escuro);
+      font-size:1.2rem;
+    }
+
+    .card p{
+      font-size:0.95rem;
+      line-height:1.6;
+      margin-bottom:15px;
+    }
+
+    .card ul{
+      padding-left:18px;
+      font-size:0.9rem;
+      line-height:1.6;
+    }
+
+    /* ===== CTA ===== */
     .cta{
       background:linear-gradient(135deg,var(--azul-escuro),var(--azul));
       color:var(--branco);
       padding:70px 8%;
       text-align:center;
     }
-    .cta h3{font-size:2rem;margin-bottom:15px}
-    .cta p{font-size:1.05rem;margin-bottom:25px}
+
+    .cta h3{
+      font-size:2rem;
+      margin-bottom:15px;
+    }
+
+    .cta p{
+      font-size:1.05rem;
+      margin-bottom:25px;
+    }
+
     .cta a{
       padding:14px 35px;
-      border:none;
       border-radius:8px;
       background:var(--branco);
       color:var(--azul-escuro);
       font-size:1rem;
-      cursor:pointer;
+      text-decoration:none;
       transition:0.3s;
+      display:inline-block;
     }
-    .cta button:hover{background:var(--cinza)}
 
+    .cta a:hover{
+      background:var(--cinza);
+    }
+
+    /* ===== FOOTER ===== */
     footer{
       background:var(--preto);
       color:var(--branco);
@@ -94,12 +189,23 @@
       font-size:0.9rem;
     }
 
+    /* ===== RESPONSIVO ===== */
+    @media(max-width:900px){
+      .images-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
     @media(max-width:768px){
-      header{flex-direction:column;gap:15px}
+      header{
+        flex-direction:column;
+        gap:15px;
+      }
       .banner h2{font-size:2.1rem}
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -109,7 +215,6 @@
     <a href="trimestre1.html">Iº TRIMESTRE</a>
     <a href="trimestre2.html">IIº TRIMESTRE</a>
     <a href="trimestre3.html">IIIº TRIMESTRE</a>
-     
   </nav>
 </header>
 
@@ -118,17 +223,32 @@
   <p>Soluções completas em Marketing Digital e Programação Web para levar o seu negócio ao próximo nível.</p>
 </section>
 
+<!-- ===== 3 IMAGENS COM BORDAS ===== -->
+<section class="images-section">
+  <div class="images-grid">
+    <div class="image-box">
+      <img src="../files/a.jpeg" alt="Imagem exemplo 1">
+    </div>
+    <div class="image-box">
+      <img src="../files/c.jpeg" alt="Imagem exemplo 2">
+    </div>
+    <div class="image-box">
+      <img src="../files/b.jpeg" alt="Imagem exemplo 3">
+    </div>
+  </div>
+</section>
+
 <section class="services">
   <h3>O Que Fazemos</h3>
-  <div class="service-grid">
 
+  <div class="service-grid">
     <div class="card">
       <h4>Marketing Digital</h4>
       <p>Planeamento estratégico focado em crescimento e conversão.</p>
       <ul>
         <li>Gestão de Redes Sociais</li>
-        <li>Tráfego Pago (Facebook & Google Ads)</li>
-        <li>SEO & Posicionamento</li>
+        <li>Tráfego Pago</li>
+        <li>SEO</li>
         <li>Email Marketing</li>
       </ul>
     </div>
@@ -140,18 +260,18 @@
         <li>Sites Institucionais</li>
         <li>Sistemas Web</li>
         <li>Lojas Online</li>
-        <li>APIs & Integrações</li>
+        <li>APIs</li>
       </ul>
     </div>
 
     <div class="card">
       <h4>UI/UX & Design</h4>
-      <p>Interfaces modernas focadas na melhor experiência do utilizador.</p>
+      <p>Interfaces modernas focadas na experiência do utilizador.</p>
       <ul>
         <li>Design Responsivo</li>
         <li>Identidade Visual</li>
         <li>Prototipagem</li>
-        <li>Branding Digital</li>
+        <li>Branding</li>
       </ul>
     </div>
 
@@ -159,31 +279,24 @@
       <h4>Consultoria Digital</h4>
       <p>Análise estratégica e soluções personalizadas.</p>
       <ul>
-        <li>Planeamento Digital</li>
-        <li>Automação de Processos</li>
+        <li>Planeamento</li>
+        <li>Automação</li>
         <li>Transformação Digital</li>
-        <li>Otimização de Sistemas</li>
+        <li>Otimização</li>
       </ul>
     </div>
-
   </div>
 </section>
 
 <section class="cta">
   <h3>Pronto para crescer no digital?</h3>
   <p>Entre em contacto com a AMP SoluTech e solicite uma solução personalizada.</p>
-  <a class="button" href="contacto.html">Falar Connosco</a>
-  
+  <a href="contacto.html">Falar Connosco</a>
 </section>
 
 <footer>
   © 2026 AMP SoluTech • Marketing Digital & Programação Web
 </footer>
 
-<script>
-  console.log('Página Serviços carregada com sucesso');
-</script>
-
 </body>
 </html>
-
