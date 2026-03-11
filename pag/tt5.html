@@ -1,84 +1,435 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Trimestre</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Completo</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    body {
-      background: #f1f5f9;
-    }
+<style>
 
-    
-    .header {
-      position: sticky;
-      top: 0;
-      
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
+/* VARIÁVEIS DE COR */
+:root{
+--preto:#000;
+--cinza-escuro:#111;
+--cinza-claro:#222;
+--neon:#ccff00;
+--grad1:#00f5ff;
+--grad2:#00ff88;
+}
 
-    .header h1 a {
-      color: #010101;
-      text-decoration: none;
-    }
+/* RESET E FONTES */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',Arial,sans-serif;
+}
 
-    .header h1 a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+body{
+background:var(--preto);
+color:white;
+overflow-x:hidden;
+transition:background 0.5s;
+}
 
-    nav {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      
-    }
+/* HEADER */
 
-    nav a {
-      text-decoration: none;
-      padding: 8px 16px;
-      background: #1e293b;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: bold;
-      
-    }
+.header{
+position:sticky;
+top:0;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:var(--preto);
+border-bottom:2px solid var(--neon);
+z-index:100;
+}
 
-    nav a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+.header h1{
+font-weight:800;
+font-size:22px;
+background: linear-gradient(90deg,var(--grad1),var(--grad2),var(--neon),var(--grad1));
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
+}
 
-  
-  </style>
+nav{
+display:flex;
+gap:15px;
+}
+
+nav a{
+text-decoration:none;
+padding:10px 20px;
+border-radius:40px;
+border:2px solid var(--neon);
+color:white;
+font-weight:bold;
+transition:.3s;
+}
+
+nav a:hover{
+background:linear-gradient(90deg,var(--grad1),var(--grad2),var(--neon));
+color:black;
+}
+
+/* ANIMAÇÃO GRADIENTE */
+@keyframes gradientMove{
+0%{background-position:0%}
+100%{background-position:300%}
+}
+
+/* TRIÂNGULO ANIMADO */
+.shape{
+position:absolute;
+right:120px;
+top:500px;
+width:200px;
+height:200px;
+background:linear-gradient(135deg,var(--grad1),var(--grad2),var(--neon));
+clip-path:polygon(50% 0%,100% 100%,0% 100%);
+animation:rotateShape 10s linear infinite;
+}
+
+@keyframes rotateShape{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
+
+/* BANNER */
+.banner{
+background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95));
+color:white;
+padding:90px 20%;
+text-align:center;
+}
+
+.banner h2{
+font-size:2.5rem;
+margin-bottom:10px;
+background: linear-gradient(90deg,var(--grad1),var(--grad2),var(--neon),var(--grad1));
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
+}
+
+.banner a{
+margin-top:20px;
+display:inline-block;
+padding:12px 30px;
+border-radius:40px;
+border:2px solid var(--neon);
+text-decoration:none;
+color:white;
+font-weight:bold;
+transition:.3s;
+}
+
+.banner a:hover{
+background:linear-gradient(90deg,var(--grad1),var(--grad2),var(--neon));
+color:black;
+}
+
+/* IMAGENS */
+.images-section{
+padding:60px 8%;
+}
+
+.images-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.image-box img{
+width:100%;
+border-radius:10px;
+transition:transform 0.3s, box-shadow 0.3s;
+}
+
+.image-box img:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px var(--neon);
+}
+
+/* CONTEÚDO */
+.conteudo{
+padding:70px 8%;
+}
+
+.linha{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+margin-bottom:50px;
+}
+
+.caixa{
+background:var(--cinza-escuro);
+padding:30px;
+border-radius:10px;
+border:2px solid var(--cinza-claro);
+transition:transform 0.3s, box-shadow 0.3s;
+}
+
+.caixa:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px var(--neon);
+}
+
+.caixa h3{
+margin-bottom:15px;
+background: linear-gradient(90deg,var(--grad1),var(--grad2),var(--neon),var(--grad1));
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
+}
+
+/* SERVIÇOS */
+.services{
+padding:80px 8%;
+}
+
+.services h2{
+text-align:center;
+margin-bottom:40px;
+background: linear-gradient(90deg,var(--grad1),var(--grad2),var(--neon),var(--grad1));
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.card{
+background:var(--cinza-escuro);
+padding:30px;
+border-radius:12px;
+border:2px solid var(--cinza-claro);
+transition:transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px var(--neon);
+}
+
+/* LISTAS */
+.lista-profissional{
+list-style:none;
+}
+
+.lista-profissional li{
+background:var(--cinza-escuro);
+margin-bottom:10px;
+padding:15px;
+border-left:5px solid var(--neon);
+}
+
+/* TABELAS */
+.tabela-profissional,
+.tabela-mesclada{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+transition:transform 0.3s;
+}
+
+.tabela-profissional th,
+.tabela-profissional td{
+padding:12px;
+border:1px solid var(--cinza-claro);
+}
+
+.tabela-mesclada th,
+.tabela-mesclada td{
+padding:12px;
+border:1px solid var(--neon);
+}
+
+.tabela-profissional tr:hover,
+.tabela-mesclada tr:hover{
+background:rgba(0,255,136,0.2);
+}
+
+/* FOOTER */
+footer{
+background:black;
+color:white;
+text-align:center;
+padding:25px;
+border-top:2px solid var(--neon);
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+
+.header{
+flex-direction:column;
+gap:10px;
+}
+
+.linha{
+grid-template-columns:1fr;
+}
+
+.images-grid{
+grid-template-columns:1fr;
+}
+
+.shape{
+display:none;
+}
+
+}
+</style>
 </head>
 
 <body>
 
-<header class="header">
-  <h1><a href="../index.html">HOME</a></h1>
+<div class="shape"></div>
 
-  <nav>
-    <a href="trimestre1.html">Iº Trimestre.</a>
-    <a href="trimestre2.html">IIº Trimestre.</a>
-    <a href="trimestre3.html">IIIº Trimestre.</a>
-  </nav>
+<header class="header">
+<h1>AMP SoluTech</h1>
+<nav>
+<a href="../index.html">Início</a>
+<a href="trimestre1.html">Iº TRIMESTRE</a>
+<a href="trimestre2.html">IIº TRIMESTRE</a>
+<a href="trimestre3.html">IIIº TRIMESTRE</a>
+</nav>
 </header>
 
-<main>
+<section class="banner">
+<h2>Nossos Serviços</h2>
+<p>Soluções completas em Marketing Digital e Programação Web.</p>
+<a href="#">Falar Connosco</a>
+</section>
 
+<section class="images-section">
+<div class="images-grid">
+<div class="image-box"><img src="../files/a.jpeg"></div>
+<div class="image-box"><img src="../files/c.jpeg"></div>
+<div class="image-box"><img src="../files/b.jpeg"></div>
+</div>
+</section>
+
+<section class="conteudo">
+<div class="linha">
+<div class="caixa">
+<h3>Introdução ao CSS</h3>
+<p>CSS significa Cascading Style Sheets.<br>É utilizado para estilizar páginas web criadas com HTML.</p>
+<p>Com CSS podemos definir cores, fontes, espaçamentos, layouts e animações.</p>
+<p>Ele separa o conteúdo da apresentação, tornando os sites mais organizados e profissionais.</p>
+</div>
+
+<div class="caixa">
+<h3>Seletores e Sintaxe</h3>
+<p><b>Sintaxe básica:</b></p>
+<pre>
+seletor {
+ propriedade: valor;
+}
+</pre>
+<p><b>Principais seletores:</b></p>
+<ul>
+<li>Seletor de elemento</li>
+<li>Seletor de classe</li>
+<li>Seletor de ID</li>
+<li>Seletor universal</li>
+</ul>
+<p><b>Formas de utilização:</b></p>
+<ul>
+<li>CSS Inline</li>
+<li>CSS Interno</li>
+<li>CSS Externo</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="services">
+<h2>O Que Fazemos</h2>
+<div class="service-grid">
+<div class="card"><h4>Marketing Digital</h4><p>Gestão de redes sociais, SEO e tráfego pago.</p></div>
+<div class="card"><h4>Programação Web</h4><p>Criação de sites e sistemas modernos.</p></div>
+<div class="card"><h4>UI/UX</h4><p>Interfaces modernas e responsivas.</p></div>
+<div class="card"><h4>Consultoria</h4><p>Estratégias digitais personalizadas.</p></div>
+</div>
+</section>
+
+<section class="conteudo">
+<div class="linha">
+<div class="caixa">
+<h3>Competências em Programação e Marketing Digital</h3>
+<ul class="lista-profissional">
+<li>Desenvolvimento de Websites com HTML, CSS e JavaScript</li>
+<li>Criação de Landing Pages</li>
+<li>Gestão de SEO</li>
+<li>Gestão de campanhas em redes sociais</li>
+<li>Análise de métricas digitais</li>
+</ul>
+</div>
+
+<div class="caixa">
+<h3>Planeamento Semanal da Agência</h3>
+<table class="tabela-profissional">
+<tr>
+<th>Dia</th><th>Atividade</th><th>Equipe</th><th>Status</th>
+</tr>
+<tr>
+<td>Segunda</td><td>Planejamento de campanhas</td><td>Marketing</td><td>Concluído</td>
+</tr>
+<tr>
+<td>Terça</td><td>Desenvolvimento Landing Page</td><td>Programação</td><td>Em progresso</td>
+</tr>
+<tr>
+<td>Quarta</td><td>Otimização SEO</td><td>Marketing</td><td>Pendente</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="linha">
+<div class="caixa">
+<h3>Planejamento de Projeto da Agência</h3>
+<table class="tabela-mesclada">
+<tr>
+<th rowspan="2">Fase</th>
+<th colspan="2">Detalhes</th>
+</tr>
+<tr>
+<th>Atividade</th>
+<th>Responsável</th>
+</tr>
+<tr>
+<td>Estratégia</td><td>Análise do público</td><td>Marketing</td>
+</tr>
+<tr>
+<td>Desenvolvimento</td><td>Criação do website</td><td>Programador</td>
+</tr>
+<tr>
+<td>Promoção</td><td>Campanhas nas redes</td><td>Social Media</td>
+</tr>
+</table>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 AMP SoluTech • Marketing Digital & Programação Web
+</footer>
 
 </body>
 </html>
