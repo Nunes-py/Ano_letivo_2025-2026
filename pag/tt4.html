@@ -1,153 +1,284 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Listas e Tabelas - Estrutura HTML Completa</title>
+<title>Nunes Paulo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap');
-
-:root{
-
---primary:#0a1a2f;      /* azul muito escuro */
---secondary:#111111;    /* preto */
---accent:#1e3a5f;       /* azul escuro */
---dark:#000000;         /* preto */
---light:#ffffff;        /* branco */
-
-}
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:'Inter','Segoe UI',sans-serif;
 }
 
 body{
-font-family:'Inter',sans-serif;
-background:var(--dark);
-color:var(--light);
-line-height:1.6;
+background:#0b1320;
+color:white;
+overflow-x:hidden;
 }
 
-/* HEADER */
+/* ===== NAVBAR ===== */
 
-header{
-background:linear-gradient(135deg,#000000,#0a1a2f);
-padding:3rem 2rem;
-text-align:center;
-border-bottom:3px solid var(--accent);
-}
-
-h1{
-font-size:2.5rem;
-font-weight:800;
-}
-
-/* CONTAINER */
-
-.container{
-max-width:1200px;
-margin:auto;
-padding:2rem;
-}
-
-/* BOXES */
-
-.example-box{
-background:rgba(255,255,255,0.05);
-border-radius:16px;
-padding:2rem;
-margin:2rem 0;
-border:1px solid rgba(255,255,255,0.15);
-}
-
-/* TITLES */
-
-h2{
-color:#4a7abf;
-font-size:1.8rem;
-margin-bottom:1rem;
+nav{
 display:flex;
+justify-content:space-between;
 align-items:center;
-gap:0.5rem;
+padding:20px 80px;
+background:#071022;
 }
 
-h3{
-color:#7aa2ff;
-margin:1.5rem 0 1rem 0;
-font-size:1.3rem;
+.logo{
+font-weight:bold;
+font-size:22px;
+
+background: linear-gradient(
+90deg,
+#00f5ff,
+#0077ff,
+#00d4ff,
+#00f5ff
+);
+
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation: gradientMove 6s infinite linear;
 }
 
-/* CODE BLOCK */
-
-.code-block{
-background:#020617;
-border-radius:12px;
-padding:1.5rem;
-margin:1rem 0;
-overflow-x:auto;
-border-left:4px solid var(--accent);
+nav ul{
+display:flex;
+gap:40px;
+list-style:none;
 }
 
-pre{
-font-family:'Fira Code',monospace;
-font-size:0.85rem;
-line-height:1.6;
+nav ul li{
+color:#cbd5e1;
+cursor:pointer;
+transition:.3s;
 }
 
-/* SYNTAX COLORS */
+nav ul li:hover{
+color:#00c3ff;
+}
 
-.tag{color:#60a5fa;}
-.attr{color:#93c5fd;}
-.val{color:#bfdbfe;}
-.content{color:#e5e7eb;}
-.comment{color:#64748b;}
+/* ===== BOTÕES ===== */
 
-/* PREVIEW */
+.nav-buttons a{
+padding:10px 20px;
+border-radius:25px;
+border:2px solid #00c3ff;
+cursor:pointer;
+margin-left:10px;
+text-decoration:none;
+color:white;
+transition:.3s;
+}
 
-.preview{
-background:white;
+.nav-buttons a:hover{
+background:linear-gradient(90deg,#0077ff,#00c3ff,#00f5ff);
 color:black;
-padding:1.5rem;
-border-radius:8px;
-margin:1rem 0;
 }
 
-/* HIGHLIGHT */
+/* ===== ANIMAÇÃO GRADIENTE ===== */
 
-.highlight-box{
-background:rgba(30,58,95,0.2);
-border-left:4px solid var(--accent);
-padding:1rem;
-margin:1rem 0;
-border-radius:0 8px 8px 0;
+@keyframes gradientMove{
+0%{background-position:0%}
+100%{background-position:300%}
 }
 
-/* TABLE */
+/* ===== TRIÂNGULO ANIMADO ===== */
 
-table{
+.shape{
+position:absolute;
+right:120px;
+top:180px;
+width:200px;
+height:200px;
+background:linear-gradient(135deg,#0077ff,#00c3ff,#00f5ff);
+clip-path:polygon(50% 0%,100% 100%,0% 100%);
+animation: rotateShape 10s linear infinite;
+opacity:0.8;
+}
+
+@keyframes rotateShape{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
+
+/* ===== SECÇÃO ===== */
+
+.secao-moderna{
+margin-top:50px;
+padding:0 80px;
+display:flex;
+flex-direction:column;
+gap:50px;
+}
+
+/* ===== TITULOS ===== */
+
+.secao-moderna h2{
+font-size:28px;
+font-weight:800;
+
+background: linear-gradient(
+90deg,
+#0077ff,
+#00c3ff,
+#00f5ff,
+#0077ff
+);
+
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation: gradientMove 6s infinite linear;
+
+margin-bottom:20px;
+}
+
+/* ===== LISTA ===== */
+
+.lista-profissional{
+list-style:none;
+}
+
+.lista-profissional li{
+background:#ffffff;
+margin-bottom:15px;
+padding:18px 20px;
+border-left:5px solid #0f172a;
+border-radius:10px;
+font-weight:500;
+color:#0f172a;
+transition:all .4s ease;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+}
+
+.lista-profissional li::before{
+content:"";
+position:absolute;
+left:-100%;
+top:0;
+width:100%;
+height:100%;
+background:#dbeafe;
+transition:.4s;
+}
+
+.lista-profissional li:hover::before{
+left:0;
+}
+
+.lista-profissional li:hover{
+transform:translateX(10px);
+color:#0b3b6f;
+border-left:5px solid #1e40af;
+}
+
+.lista-profissional li span{
+position:relative;
+z-index:1;
+}
+
+/* ===== TABELA 1 ===== */
+
+.tabela-profissional{
 width:100%;
 border-collapse:collapse;
-margin:1rem 0;
+overflow:hidden;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-th,td{
-border:1px solid #444;
-padding:0.75rem;
-text-align:left;
+.tabela-profissional thead{
+background:#0f172a;
+color:#e0f2fe;
 }
 
-th{
-background:#0a1a2f;
+.tabela-profissional th,
+.tabela-profissional td{
+padding:15px;
+text-align:center;
+}
+
+.tabela-profissional tbody tr{
+background:#1e3a5f;
+border-bottom:1px solid #0f172a;
+transition:.3s;
+}
+
+.tabela-profissional tbody tr:hover{
+background:#2563eb;
+}
+
+.tabela-profissional tbody tr:nth-child(even){
+background:#172c46;
+}
+
+/* ===== TABELA 2 (CORES MAIS VISÍVEIS) ===== */
+
+.tabela-mesclada{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+border-radius:12px;
+overflow:hidden;
+}
+
+.tabela-mesclada th{
+background:#0f172a;
+color:white;
+padding:15px;
+}
+
+.tabela-mesclada td{
+padding:15px;
+text-align:center;
+background:#e8f3ff;
+color:#0f172a;
+border:1px solid #2563eb;
+font-weight:500;
+}
+
+.tabela-mesclada tr:nth-child(even) td{
+background:#cfe7ff;
+}
+
+.tabela-mesclada tr:hover td{
+background:#2563eb;
 color:white;
 }
 
-td{
-background:#ffffff;
-color:#000000;
+/* ===== RESPONSIVO ===== */
+
+@media(max-width:900px){
+
+nav{
+flex-direction:column;
+gap:15px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.secao-moderna{
+padding:0 30px;
+}
+
+.shape{
+display:none;
+}
+
 }
 
 </style>
@@ -155,120 +286,129 @@ color:#000000;
 
 <body>
 
-<header>
-<h1>📋 Estrutura HTML Completa</h1>
-<p style="margin-top:0.5rem;opacity:0.9;">Tags usadas nos exemplos de Listas e Tabelas</p>
-</header>
+<nav>
 
-<div class="container">
+<a href="../index.html" class="logo"> Início</a>
 
-<section class="example-box">
+<ul></ul>
 
-<h2>1. Lista Não Ordenada</h2>
+<div class="nav-buttons">
+<a href="./tt3.html">Voltar</a>
+<a href="./tt4.html">Próximo</a>
+</div>
 
-<p style="margin-bottom:1rem;color:#94a3b8;">
-Usada para menus, navegação e agrupamentos sem ordem específica.
-</p>
+</nav>
 
-<div class="preview">
-<ul>
-<li>Item 1</li>
-<li>Item 2</li>
-<li>Item 3</li>
+<div class="shape"></div>
+
+<section class="secao-moderna">
+
+<div>
+<h2>Competências em Programação e Marketing Digital</h2>
+
+<ul class="lista-profissional">
+<li><span>Desenvolvimento de Websites com HTML, CSS e JavaScript</span></li>
+<li><span>Criação de Landing Pages para campanhas de marketing</span></li>
+<li><span>Gestão de SEO e otimização para motores de busca</span></li>
+<li><span>Gestão de campanhas em redes sociais (Facebook e Instagram Ads)</span></li>
+<li><span>Análise de métricas e performance digital</span></li>
 </ul>
 </div>
 
-</section>
+<div>
 
-<section class="example-box">
+<h2>Planeamento Semanal da Agência de Marketing</h2>
 
-<h2>2. Lista Ordenada</h2>
-
-<div class="preview">
-<ol>
-<li>Primeiro passo</li>
-<li>Segundo passo</li>
-<li>Terceiro passo</li>
-</ol>
-</div>
-
-</section>
-
-<section class="example-box">
-
-<h2>3. Tabela Básica</h2>
-
-<div class="preview">
-
-<table>
+<table class="tabela-profissional">
 
 <thead>
 <tr>
-<th>Nome</th>
-<th>Cargo</th>
+<th>Dia</th>
+<th>Atividade</th>
+<th>Equipe</th>
 <th>Status</th>
 </tr>
 </thead>
 
 <tbody>
+
 <tr>
-<td>Ana Augusto</td>
-<td>Designer</td>
-<td>Ativo</td>
+<td>Segunda</td>
+<td>Planejamento de campanhas digitais</td>
+<td>Marketing</td>
+<td>Concluído</td>
 </tr>
 
 <tr>
-<td>Alfrero Costa</td>
-<td>Dev</td>
-<td>Ativo</td>
+<td>Terça</td>
+<td>Desenvolvimento de Landing Page</td>
+<td>Programação</td>
+<td>Em progresso</td>
 </tr>
+
+<tr>
+<td>Quarta</td>
+<td>Otimização SEO do site</td>
+<td>Marketing</td>
+<td>Pendente</td>
+</tr>
+
+<tr>
+<td>Quinta</td>
+<td>Criação de anúncios para redes sociais</td>
+<td>Design</td>
+<td>Pendente</td>
+</tr>
+
 </tbody>
+</table>
+
+</div>
+
+<div>
+
+<h2>Planejamento de Projeto da Agência</h2>
+
+<table class="tabela-mesclada">
+
+<tr>
+<th rowspan="2">Fase</th>
+<th colspan="2">Detalhes do Projeto</th>
+</tr>
+
+<tr>
+<th>Atividade</th>
+<th>Responsável</th>
+</tr>
+
+<tr>
+<td rowspan="2">Estratégia</td>
+<td>Análise do público-alvo</td>
+<td>Equipe de Marketing</td>
+</tr>
+
+<tr>
+<td>Definição de campanha digital</td>
+<td>Gestor de Marketing</td>
+</tr>
+
+<tr>
+<td>Desenvolvimento</td>
+<td>Criação do website e landing pages</td>
+<td>Programador Web</td>
+</tr>
+
+<tr>
+<td>Promoção</td>
+<td>Campanhas de anúncios e redes sociais</td>
+<td>Social Media</td>
+</tr>
 
 </table>
 
 </div>
 
 </section>
-
-<section class="example-box">
-
-<h2>4. Tabela com Células Mescladas</h2>
-
-<div class="preview">
-
-<table>
-
-<thead>
-
-<tr>
-<th rowspan="2">Produto</th>
-<th colspan="2">Valores</th>
-</tr>
-
-<tr>
-<th>Custo</th>
-<th>Venda</th>
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-<td>Notebook</td>
-<td>R$ 3000</td>
-<td>R$ 4500</td>
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-</section>
-
-</div>
 
 </body>
-  </html>
+</html>
