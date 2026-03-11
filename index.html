@@ -1,202 +1,359 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HOME - Trabalhos de Programação</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
+<title>HOME - Trabalhos de Programação</title>
 
-    body{
-      background:#f1f5f9;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    .header{
-      position:sticky;
-      top:0;
-      background:#46516a;
-      padding:15px 25px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      z-index:1000;
-    }
+<style>
 
-    .header h1 a{
-      text-decoration:none;
-      color:#fff;
-      font-weight:bold;
-      font-size:20px;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',Arial;
+}
 
-    main{
-      padding:40px;
-      display:flex;
-      flex-direction:column;
-      gap:30px;
-    }
+body{
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
 
-    .apresentacao{
-      background:#ffffff;
-      padding:25px;
-      border-radius:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.12);
-      border-left:6px solid #46516a;
-      text-align:center;
-      max-width:900px;
-      margin:0 auto;
-    }
+/* HEADER */
 
-    .apresentacao img{
-      width:100%;
-      max-width:600px;
-      height:200px;
-      object-fit:cover;
-      border-radius:10px;
-      margin-bottom:15px;
-    }
+.header{
+position:sticky;
+top:0;
+background:#000;
+padding:20px;
+text-align:center;
+border-bottom:2px solid #ccff00;
+}
 
-    .apresentacao h3{
-      margin-bottom:10px;
-      color:#0f172a;
-    }
+.header a{
+text-decoration:none;
+font-size:28px;
+font-weight:800;
 
-    .apresentacao p{
-      font-size:16px;
-      line-height:1.6;
-      color:#334155;
-    }
+background: linear-gradient(90deg,#00f5ff,#00ff88,#ccff00,#00f5ff);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
+}
 
-    .conteudo-inferior{
-      display:flex;
-      gap:30px;
-    }
+@keyframes gradientMove{
+0%{background-position:0%}
+100%{background-position:300%}
+}
 
-    .trimestres{
-      width:100%;
-      max-width:350px;
-      background:#46516a;
-      padding:30px;
-      border-radius:12px;
-    }
+main{
+padding:40px;
+display:flex;
+flex-direction:column;
+gap:40px;
+}
 
-    .trimestres a{
-      display:block;
-      margin-bottom:15px;
-      padding:15px;
-      text-align:center;
-      background:#000;
-      color:#fff;
-      text-decoration:none;
-      font-size:18px;
-      font-weight:bold;
-      border-radius:50px;
-      transition:0.3s;
-    }
 
-    .trimestres a:hover{
-      background:#d3e412;
-      color:#000;
-    }
+.apresentacao{
+background:#111;
+padding:30px;
+border-radius:12px;
+text-align:center;
+max-width:900px;
+margin:auto;
+border:2px solid #222;
+}
 
-    .dados{
-      flex:1;
-      background:#ffffff;
-      padding:30px;
-      border-radius:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.12);
-    }
+.apresentacao img{
+width:100%;
+max-width:600px;
+height:220px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:15px;
+}
 
-    .dados h2{
-      margin-bottom:15px;
-      color:#0f172a;
-    }
+.apresentacao h3{
+font-size:40px;
+font-weight:800;
 
-    .dados p{
-      margin-bottom:10px;
-      font-size:16px;
-      color:#334155;
-    }
+background: linear-gradient(90deg,#00f5ff,#00ff88,#ccff00,#00f5ff);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
+}
 
-    @media(max-width:768px){
-      main{
-        padding:20px;
-      }
+.conteudo-inferior{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+}
 
-      .conteudo-inferior{
-        flex-direction:column;
-      }
+/* TRIMESTRES */
 
-      .apresentacao img{
-        height:180px;
-      }
-    }
-  </style>
+.trimestres{
+background:#111;
+padding:30px;
+border-radius:12px;
+width:300px;
+border:2px solid #222;
+}
+
+.trimestres a{
+display:block;
+margin-bottom:15px;
+padding:15px;
+text-align:center;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+border-radius:50px;
+border:2px solid #ccff00;
+color:#fff;
+transition:.3s;
+}
+
+.trimestres a:hover{
+background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+color:#000;
+}
+
+/* DADOS */
+
+.dados{
+flex:1;
+background:#111;
+padding:30px;
+border-radius:12px;
+border:2px solid #222;
+}
+
+.dados h2{
+margin-bottom:15px;
+
+background: linear-gradient(90deg,#00f5ff,#00ff88,#ccff00,#00f5ff);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
+}
+
+/* CONTACTO */
+
+.contacto{
+margin-top:20px;
+text-align:center;
+}
+
+.contacto button{
+padding:12px 30px;
+border:2px solid #ccff00;
+background:none;
+color:#fff;
+font-size:18px;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+}
+
+.contacto button:hover{
+background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+color:#000;
+}
+
+/* OPÇÕES */
+
+.opcoes{
+display:none;
+margin-top:20px;
+}
+
+.opcoes a{
+display:block;
+margin:10px auto;
+width:220px;
+padding:15px;
+text-decoration:none;
+color:#fff;
+font-weight:bold;
+border-radius:40px;
+text-align:center;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+background:#25D366;
+}
+
+/* FACEBOOK */
+
+.facebook{
+background:#1877F2;
+}
+
+/* TRIÂNGULO ANIMADO */
+
+.shape{
+position:absolute;
+right:120px;
+top:300px;
+width:200px;
+height:200px;
+background:linear-gradient(135deg,#00f5ff,#00ff88,#ccff00);
+clip-path:polygon(50% 0%,100% 100%,0% 100%);
+animation:rotateShape 10s linear infinite;
+}
+
+@keyframes rotateShape{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+main{
+padding:20px;
+}
+
+.conteudo-inferior{
+flex-direction:column;
+}
+
+.shape{
+display:none;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
+<div class="shape"></div>
+
 <header class="header">
-  <h1><a href="index.html">HOME</a></h1>
+<a href="index.html">HOME</a>
 </header>
 
 <main>
 
-  <div class="apresentacao">
-    <img id="imgDinamica" alt="Imagem de programação">
-    <h3>Apresentação</h3>
-    <p>
-      Olá, eu sou o <strong>Nunes Daniel Itumbo Paulo</strong>.
-      Seja bem-vindo ao meu site de trabalhos de programação.
-    </p>
-  </div>
+<!-- APRESENTAÇÃO -->
 
-  <div class="conteudo-inferior">
+<div class="apresentacao">
 
-    <div class="trimestres">
-      <a href="pag/trimestre1.html">I Trimestre</a>
-      <a href="pag/trimestre2.html">II Trimestre</a>
-      <a href="pag/trimestre3.html">III Trimestre</a>
-    </div>
+<img id="imgDinamica" alt="Imagem de programação">
 
-    <div class="dados">
-      <h2>Trabalho de Programação (TLP)</h2>
+<h3>Apresentação</h3>
 
-      <p><strong>Nome:</strong> Nunes Daniel Itumbo Paulo</p>
-      <p><strong>Nº:</strong> 29</p>
-      <p><strong>Sala:</strong> 19</p>
-      <p><strong>Classe:</strong> 13ª</p>
+<p>
+Olá, eu sou o <strong>Nunes Daniel Itumbo Paulo</strong>.
+Seja bem-vindo ao meu site de trabalhos de programação.
+</p>
 
-      <br>
+</div>
 
-      <p>
-        Este site foi desenvolvido como parte do trabalho prático da disciplina
-        <strong>Técnicas de Linguagem de Programação (TLP)</strong>,
-        com o objetivo de aplicar conhecimentos de HTML, CSS e organização
-        de conteúdos web.
-      </p>
-    </div>
+<!-- CONTEÚDO INFERIOR -->
 
-  </div>
+<div class="conteudo-inferior">
+
+<!-- TRIMESTRES -->
+
+<div class="trimestres">
+
+<a href="pag/trimestre1.html">I Trimestre</a>
+
+<a href="pag/trimestre2.html">II Trimestre</a>
+
+<a href="pag/trimestre3.html">III Trimestre</a>
+
+</div>
+
+<!-- DADOS -->
+
+<div class="dados">
+
+<h2>Trabalho de Programação (TLP)</h2>
+
+<p><strong>Nome:</strong> Nunes Daniel Itumbo Paulo</p>
+
+<p><strong>Nº:</strong> 29</p>
+
+<p><strong>Sala:</strong> 19</p>
+
+<p><strong>Classe:</strong> 13ª</p>
+
+<br>
+
+<p>
+Este site foi desenvolvido como parte do trabalho prático da disciplina
+<strong>Técnicas de Linguagem de Programação (TLP)</strong>.
+</p>
+
+<!-- CONTACTO -->
+
+<div class="contacto">
+
+<button onclick="abrirContacto()">Contacto</button>
+
+<div id="opcoesContacto" class="opcoes">
+
+<a href="https://wa.me/244947598315" target="_blank" class="whatsapp">
+WhatsApp
+</a>
+
+<a href="https://www.facebook.com/photo.php?fbid=1062725188594031&set=a.131172605082632&type=3&mibextid=rS40aB7S9Ucbxw6v" target="_blank" class="facebook">
+Facebook
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </main>
 
 <script>
-  const imagens = [
-    "https://images.unsplash.com/photo-1517433456452-f9633a875f6f",
-    "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
-    "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-    "https://images.unsplash.com/photo-1518770660439-4636190af475"
-  ];
 
-  const imagemAleatoria = imagens[Math.floor(Math.random() * imagens.length)];
-  document.getElementById("imgDinamica").src = imagemAleatoria;
+/* IMAGEM ALEATÓRIA */
+
+const imagens = [
+"https://images.unsplash.com/photo-1517433456452-f9633a875f6f",
+"https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
+"https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+"https://images.unsplash.com/photo-1518770660439-4636190af475"
+];
+
+const imagemAleatoria = imagens[Math.floor(Math.random() * imagens.length)];
+
+document.getElementById("imgDinamica").src = imagemAleatoria;
+
+/* ABRIR CONTACTO */
+
+function abrirContacto(){
+
+var op = document.getElementById("opcoesContacto");
+
+if(op.style.display === "block"){
+op.style.display = "none";
+}else{
+op.style.display = "block";
+}
+
+}
+
 </script>
 
 </body>
