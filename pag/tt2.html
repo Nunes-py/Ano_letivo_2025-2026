@@ -1,170 +1,326 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Trimestre</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Trimestre</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    body {
-      background: #f1f5f9;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
 
-    
-    .header {
-      position: sticky;
-      top: 0;
-      background-color: #f1f5f9;
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
+body{
+  background:#000;
+  color:#fff;
+  min-height:100vh;
+}
 
-    .header h1 a {
-      color: #010101;
-      text-decoration: none;
-    }
+/* HEADER */
+.header{
+  position:sticky;
+  top:0;
+  background:#111;
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #222;
+}
 
-    .header h1 a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+.header h1 a{
+  text-decoration:none;
+  padding:10px 20px;
+  border:2px solid #ccff00;
+  color:#fff;
+  border-radius:6px;
+  font-weight:600;
+  transition:.3s;
+}
 
-    nav {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      
-    }
+.header h1 a:hover{
+  background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+  color:#000;
+}
 
-    nav a {
-      text-decoration: none;
-      padding: 8px 16px;
-      background: #1e293b;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: bold;
-      
-    }
+/* MENU PRINCIPAL */
+nav{
+  display:flex;
+  gap:15px;
+}
 
-    nav a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+nav a{
+  text-decoration:none;
+  padding:10px 20px;
+  border:2px solid #ccff00;
+  color:#fff;
+  border-radius:6px;
+  font-weight:600;
+  transition:.3s;
+}
+
+nav a:hover{
+  background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+  color:#000;
+}
+
+/* MAIN */
+main{
+  display:flex;
+  justify-content:center;
+  padding:60px;
+}
+
+/* CONTEÚDO DO TRIMESTRE */
+.trimes{
+  background:#111;
+  padding:50px;
+  border-radius:12px;
+  max-width:900px;
+  box-shadow:0 0 25px rgba(0,255,150,0.2);
+  position:relative;
+}
+
+/* TITULOS COM GRADIENTE */
+.trimes h2{
+  font-size:38px;
+  font-weight:800;
+  margin-bottom:25px;
+  text-align:center;
+  background:linear-gradient(
+    90deg,
+    #00f5ff,
+    #00ff88,
+    #ccff00,
+    #00f5ff
+  );
+  background-size:300%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradientMove 6s linear infinite;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0%}
+  100%{background-position:300%}
+}
+
+/* TEXTO */
+.trimes p{
+  color:#ccc;
+  font-size:18px;
+  line-height:1.7;
+}
+
+/* BOTÃO T3 */
+.trimes .btn-t3{
+  display:flex;
+  justify-content:center;
+  margin-top:40px;
+}
+
+.trimes .btn-t3 a{
+  padding:12px 30px;
+  border:2px solid #ccff00;
+  text-decoration:none;
+  color:#fff;
+  border-radius:8px;
+  font-weight:600;
+  transition:.3s;
+}
+
+.trimes .btn-t3 a:hover{
+  background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+  color:#000;
+}
+
+/* NOVA DIV ADICIONAL */
+.trimes .tipos-seletores{
+  background:#222;
+  padding:30px;
+  border-radius:10px;
+  margin-top:40px;
+  box-shadow:0 0 15px rgba(0,255,150,0.2);
+}
+
+.trimes .tipos-seletores h3{
+  font-size:28px;
+  font-weight:700;
+  margin-bottom:15px;
+  text-align:left;
+  background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+  background-size:300%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradientMove 6s linear infinite;
+}
+
+.trimes .tipos-seletores ul{
+  margin-left:20px;
+  color:#ccc;
+  line-height:1.6;
+}
+
+/* TRIÂNGULO ANIMADO */
+.shape{
+  position:absolute;
+  right:-70px;
+  top:-70px;
+  width:180px;
+  height:180px;
+  background:linear-gradient(135deg,#00f5ff,#00ff88,#ccff00);
+  clip-path:polygon(50% 0%,100% 100%,0% 100%);
+  animation:rotateShape 10s linear infinite;
+  opacity:0.4;
+}
+
+@keyframes rotateShape{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+/* RESPONSIVO */
+@media(max-width:800px){
+  .header{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  main{
+    padding:30px;
+  }
 
   .trimes{
-    margin: 10%;
+    padding:30px;
   }
-  </style>
+
+  .trimes h2{
+    font-size:28px;
+  }
+
+  .trimes .tipos-seletores h3{
+    font-size:22px;
+  }
+
+  .shape{
+    display:none;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header class="header">
-  <h1><a href="../index.html">HOME</a></h1>
+<h1><a href="../index.html">HOME</a></h1>
 
-  <nav>
-    <a href="trimestre1.html">Iº Trimestre.</a>
-    <a href="trimestre2.html">IIº Trimestre.</a>
-    <a href="trimestre3.html">IIIº Trimestre.</a>
-  </nav>
+<nav>
+<a href="trimestre1.html">Iº Trimestre</a>
+<a href="trimestre2.html">IIº Trimestre</a>
+<a href="trimestre3.html">IIIº Trimestre</a>
+</nav>
 </header>
 
 <main>
-  <div class="trimes">
-    
-    <center><h2>Introdução ao CSS</h2></center><br>
+<div class="trimes">
 
-    <p>
-      O CSS (Cascading Style Sheets) é uma linguagem utilizada para definir a
-      aparência e o layout das páginas web. Ele trabalha em conjunto com o HTML,
-      sendo responsável por tornar os sites mais organizados, bonitos e agradáveis
-      ao utilizador.
-    </p>
+<div class="shape"></div>
 
-    <br>
+<center><h2>Introdução ao CSS</h2></center><br>
 
-    <p>
-      Com o CSS é possível alterar cores, fontes, tamanhos de texto, espaçamentos,
-      posicionamento de elementos e criar layouts responsivos que se adaptam a
-      diferentes tamanhos de ecrã.
-    </p>
+<p>
+O CSS (Cascading Style Sheets) é uma linguagem utilizada para definir a
+aparência e o layout das páginas web. Ele trabalha em conjunto com o HTML,
+sendo responsável por tornar os sites mais organizados, bonitos e agradáveis
+ao utilizador.
+</p>
 
-    <br>
+<br>
 
-    <p>
-      A principal vantagem do CSS é a separação entre conteúdo e estilo, o que
-      facilita a manutenção do site e melhora a experiência visual dos utilizadores.
-    </p>
+<p>
+Com o CSS é possível alterar cores, fontes, tamanhos de texto, espaçamentos,
+posicionamento de elementos e criar layouts responsivos que se adaptam a
+diferentes tamanhos de ecrã.
+</p>
 
-    <br><br>
+<br>
 
-    <center><h2>Sintaxe Básica do CSS</h2></center><br>
+<p>
+A principal vantagem do CSS é a separação entre conteúdo e estilo, o que
+facilita a manutenção do site e melhora a experiência visual dos utilizadores.
+</p>
 
-    <p>
-      A sintaxe do CSS é composta por três partes principais: o seletor, a propriedade
-      e o valor. Essa estrutura define quais elementos HTML serão estilizados e
-      como eles irão aparecer na página.
-    </p>
+<br><br>
 
-    <br>
+<center><h2>Sintaxe Básica do CSS</h2></center><br>
 
-    <p>
-      O seletor indica o elemento HTML que será estilizado, a propriedade define
-      o que será alterado (como cor ou tamanho) e o valor especifica o resultado
-      dessa alteração.
-    </p>
+<p>
+A sintaxe do CSS é composta por três partes principais: o seletor, a propriedade
+e o valor. Essa estrutura define quais elementos HTML serão estilizados e
+como eles irão aparecer na página.
+</p>
 
-    <br>
+<br>
 
-    <p>
-      Exemplo de sintaxe CSS: o seletor é o nome do elemento, seguido de chaves
-      que contêm as propriedades e os seus valores.
-    </p>
+<p>
+O seletor indica o elemento HTML que será estilizado, a propriedade define
+o que será alterado (como cor ou tamanho) e o valor especifica o resultado
+dessa alteração.
+</p>
 
-    <br><br>
+<br>
 
-    <center><h2>Seletores CSS</h2></center><br>
+<p>
+Exemplo de sintaxe CSS: o seletor é o nome do elemento, seguido de chaves
+que contêm as propriedades e os seus valores.
+</p>
 
-    <p>
-      Os seletores CSS são utilizados para selecionar os elementos HTML que
-      receberão estilos. Eles permitem aplicar regras específicas a diferentes
-      partes da página.
-    </p>
+<br><br>
 
-    <br>
+<center><h2>Seletores CSS</h2></center><br>
 
-    <p>
-      O seletor de elemento aplica estilos a todas as tags do mesmo tipo, como
-      parágrafos ou títulos. Já o seletor de classe é usado para estilizar elementos
-      específicos que possuem um mesmo nome de classe.
-    </p>
+<p>
+Os seletores CSS são utilizados para selecionar os elementos HTML que
+receberão estilos. Eles permitem aplicar regras específicas a diferentes
+partes da página.
+</p>
 
-    <br>
+<br>
 
-    <p>
-      O seletor de ID é utilizado quando se deseja estilizar apenas um elemento
-      único na página. Ele é identificado por um nome exclusivo e não deve ser
-      repetido.
-    </p>
+<p>
+Tipos de seletores mais comuns:
+</p>
 
-    <br>
+<div class="tipos-seletores">
+<h3>Tipos de Seletores</h3>
+<ul>
+<li><b>Seletor de elemento:</b> Aplica estilos a todas as tags de um tipo (ex.: p, h1).</li>
+<li><b>Seletor de classe:</b> Aplica estilos a elementos com uma classe específica (ex.: .menu).</li>
+<li><b>Seletor de ID:</b> Aplica estilos a um elemento único (ex.: #header).</li>
+<li><b>Seletor universal:</b> Seleciona todos os elementos (*).</li>
+<li><b>Seletor de atributo:</b> Seleciona elementos com determinado atributo (ex.: [type="text"]).</li>
+<li><b>Pseudo-classes:</b> Seleciona elementos em um estado específico (ex.: :hover, :first-child).</li>
+</ul>
 
-    <p>
-      O uso correto dos seletores facilita a organização do código CSS e torna
-      o desenvolvimento do site mais eficiente e profissional.
-    </p>
+<h3>Tipos de Sintaxe CSS</h3>
+<ul>
+<li><b>CSS Interno:</b> Estiliza dentro da própria página HTML, usando a tag &lt;style&gt;.</li>
+<li><b>CSS Externo:</b> Estiliza a página através de um arquivo separado (.css), usando &lt;link&gt; no HTML.</li>
+</ul>
+</div>
 
-  </div>    
+<!-- BOTÃO T3 -->
+<div class="btn-t3">
+<a href="tt3.html">T3</a>
+</div>
+
+</div>
 </main>
+
 </body>
 </html>
