@@ -1,209 +1,270 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serviços | AMP SoluTech</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serviços | AMP SoluTech</title>
 
-  <style>
-    :root{
-      --azul-escuro:#0b1f3a;
-      --azul:#1f4fd8;
-      --preto:#0a0a0a;
-      --cinza:#eef2f6;
-      --branco:#ffffff;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial,Helvetica,sans-serif;
-    }
+<style>
+:root{
+  --azul-escuro:#0b1f3a;
+  --azul:#1f4fd8;
+  --preto:#0a0a0a;
+  --cinza:#eef2f6;
+  --branco:#ffffff;
+}
 
-    body{
-      background:var(--cinza);
-      color:var(--preto);
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter', Arial, Helvetica, sans-serif;
+}
 
-    /* ===== HEADER ===== */
-    header{
-      background:linear-gradient(135deg,var(--azul-escuro),var(--preto));
-      color:var(--branco);
-      padding:20px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      position:sticky;
-      top:0;
-      z-index:1000;
-    }
+body{
+  background:var(--cinza);
+  color:var(--preto);
+  overflow-x:hidden;
+}
 
-    header h1{font-size:1.6rem}
+/* ===== HEADER ===== */
+header{
+  background:linear-gradient(135deg,var(--azul-escuro),var(--preto));
+  color:var(--branco);
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
 
-    nav a{
-      color:var(--branco);
-      text-decoration:none;
-      margin-left:20px;
-      font-size:0.95rem;
-      transition:0.3s;
-    }
+header h1{font-size:1.6rem}
 
-    nav a:hover{color:var(--azul)}
+nav a{
+  color:var(--branco);
+  text-decoration:none;
+  margin-left:20px;
+  font-size:0.95rem;
+  transition:0.3s;
+}
 
-    /* ===== BANNER / SIDEBAR ===== */
-    .banner{
-      background:
-        linear-gradient(rgba(11,31,58,0.85),rgba(0,0,0,0.85)),
-        url('../files/Blue Grey Minimalist Modern Business Card .png') center/cover;
-      color:var(--branco);
-      padding:90px 28%;
-      text-align:center;
-    }
+nav a:hover{color:var(--azul)}
 
-    .banner h2{
-      font-size:2.6rem;
-      margin-bottom:15px;
-    }
+/* ===== BANNER / SIDEBAR ===== */
+.banner{
+  background:
+    linear-gradient(rgba(11,31,58,0.85),rgba(0,0,0,0.85)),
+    url('../files/Blue Grey Minimalist Modern Business Card .png') center/cover;
+  color:var(--branco);
+  padding:90px 28%;
+  text-align:center;
+  position:relative;
+}
 
-    .banner p{
-      max-width:750px;
-      margin:auto;
-      font-size:1.1rem;
-      line-height:1.6;
-    }
+.banner h2{
+  font-size:2.6rem;
+  margin-bottom:15px;
+  font-weight:800;
+  background: linear-gradient(
+      90deg,
+      #00f5ff,
+      #00ff88,
+      #ccff00,
+      #00f5ff
+  );
+  background-size:300%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: gradientMove 6s infinite linear;
+}
 
-    /* ===== SECÇÃO DAS 3 IMAGENS ===== */
-    .images-section{
-      background:var(--branco);
-      padding:60px 8%;
-    }
+@keyframes gradientMove{
+  0%{background-position:0%}
+  100%{background-position:300%}
+}
 
-    .images-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:30px;
-    }
+.banner p{
+  max-width:750px;
+  margin:auto;
+  font-size:1.1rem;
+  line-height:1.6;
+}
 
-    .image-box{
-      border:3px solid var(--azul-escuro);
-      border-radius:12px;
-      padding:15px;
-      background:var(--cinza);
-      text-align:center;
-    }
+/* ===== BOTÃO ANIMADO ===== */
+.banner a{
+  margin-top:40px;
+  display:inline-block;
+  padding:15px 35px;
+  border:2px solid #ccff00;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:2px;
+  color:#fff;
+  transition:.3s;
+}
 
-    .image-box img{
-      width:100%;
-      height:auto;
-      border-radius:8px;
-      display:block;
-    }
+.banner a:hover{
+  background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+  color:#000;
+}
 
-    /* ===== SERVIÇOS ===== */
-    .services{
-      padding:80px 8%;
-      background:var(--branco);
-    }
+/* ===== TRIÂNGULO ANIMADO ===== */
+.shape{
+  position:absolute;
+  right:120px;
+  top:50px;
+  width:200px;
+  height:200px;
+  background:linear-gradient(135deg,#00f5ff,#00ff88,#ccff00);
+  clip-path:polygon(50% 0%,100% 100%,0% 100%);
+  animation: rotateShape 10s linear infinite;
+}
 
-    .services h3{
-      text-align:center;
-      font-size:2rem;
-      margin-bottom:50px;
-    }
+@keyframes rotateShape{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
 
-    .service-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:30px;
-    }
+/* ===== SECÇÃO DAS 3 IMAGENS ===== */
+.images-section{
+  background:var(--branco);
+  padding:60px 8%;
+}
 
-    .card{
-      background:var(--cinza);
-      padding:35px 30px;
-      border-radius:14px;
-      transition:0.3s;
-    }
+.images-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
 
-    .card:hover{
-      transform:translateY(-10px);
-    }
+.image-box{
+  border:3px solid var(--azul-escuro);
+  border-radius:12px;
+  padding:15px;
+  background:var(--cinza);
+  text-align:center;
+}
 
-    .card h4{
-      margin-bottom:15px;
-      color:var(--azul-escuro);
-      font-size:1.2rem;
-    }
+.image-box img{
+  width:100%;
+  height:auto;
+  border-radius:8px;
+  display:block;
+}
 
-    .card p{
-      font-size:0.95rem;
-      line-height:1.6;
-      margin-bottom:15px;
-    }
+/* ===== SERVIÇOS ===== */
+.services{
+  padding:80px 8%;
+  background:var(--branco);
+}
 
-    .card ul{
-      padding-left:18px;
-      font-size:0.9rem;
-      line-height:1.6;
-    }
+.services h3{
+  text-align:center;
+  font-size:2rem;
+  margin-bottom:50px;
+}
 
-    /* ===== CTA ===== */
-    .cta{
-      background:linear-gradient(135deg,var(--azul-escuro),var(--azul));
-      color:var(--branco);
-      padding:70px 8%;
-      text-align:center;
-    }
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
 
-    .cta h3{
-      font-size:2rem;
-      margin-bottom:15px;
-    }
+.card{
+  background:var(--cinza);
+  padding:35px 30px;
+  border-radius:14px;
+  transition:0.3s;
+}
 
-    .cta p{
-      font-size:1.05rem;
-      margin-bottom:25px;
-    }
+.card:hover{
+  transform:translateY(-10px);
+}
 
-    .cta a{
-      padding:14px 35px;
-      border-radius:8px;
-      background:var(--branco);
-      color:var(--azul-escuro);
-      font-size:1rem;
-      text-decoration:none;
-      transition:0.3s;
-      display:inline-block;
-    }
+.card h4{
+  margin-bottom:15px;
+  color:var(--azul-escuro);
+  font-size:1.2rem;
+}
 
-    .cta a:hover{
-      background:var(--cinza);
-    }
+.card p{
+  font-size:0.95rem;
+  line-height:1.6;
+  margin-bottom:15px;
+}
 
-    /* ===== FOOTER ===== */
-    footer{
-      background:var(--preto);
-      color:var(--branco);
-      text-align:center;
-      padding:25px 10px;
-      font-size:0.9rem;
-    }
+.card ul{
+  padding-left:18px;
+  font-size:0.9rem;
+  line-height:1.6;
+}
 
-    /* ===== RESPONSIVO ===== */
-    @media(max-width:900px){
-      .images-grid{
-        grid-template-columns:1fr;
-      }
-    }
+/* ===== CTA ===== */
+.cta{
+  background:linear-gradient(135deg,var(--azul-escuro),var(--azul));
+  color:var(--branco);
+  padding:70px 8%;
+  text-align:center;
+}
 
-    @media(max-width:768px){
-      header{
-        flex-direction:column;
-        gap:15px;
-      }
-      .banner h2{font-size:2.1rem}
-    }
-  </style>
+.cta h3{
+  font-size:2rem;
+  margin-bottom:15px;
+}
+
+.cta p{
+  font-size:1.05rem;
+  margin-bottom:25px;
+}
+
+.cta a{
+  padding:14px 35px;
+  border-radius:8px;
+  background:var(--branco);
+  color:var(--azul-escuro);
+  font-size:1rem;
+  text-decoration:none;
+  transition:0.3s;
+  display:inline-block;
+}
+
+.cta a:hover{
+  background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+  color:#000;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--preto);
+  color:var(--branco);
+  text-align:center;
+  padding:25px 10px;
+  font-size:0.9rem;
+}
+
+/* ===== RESPONSIVO ===== */
+@media(max-width:900px){
+  .images-grid{
+    grid-template-columns:1fr;
+  }
+
+  .shape{
+    display:none;
+  }
+}
+
+@media(max-width:768px){
+  header{
+    flex-direction:column;
+    gap:15px;
+  }
+  .banner h2{font-size:2.1rem}
+}
+</style>
 </head>
 
 <body>
@@ -221,9 +282,10 @@
 <section class="banner">
   <h2>Nossos Serviços</h2>
   <p>Soluções completas em Marketing Digital e Programação Web para levar o seu negócio ao próximo nível.</p>
+  <a href="contacto.html">Falar Connosco</a>
+  <div class="shape"></div>
 </section>
 
-<!-- ===== 3 IMAGENS COM BORDAS ===== -->
 <section class="images-section">
   <div class="images-grid">
     <div class="image-box">
@@ -240,7 +302,6 @@
 
 <section class="services">
   <h3>O Que Fazemos</h3>
-
   <div class="service-grid">
     <div class="card">
       <h4>Marketing Digital</h4>
