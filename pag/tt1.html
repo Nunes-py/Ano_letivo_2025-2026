@@ -1,127 +1,252 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Trimestre</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Trimestre</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    body {
-      background: #f1f5f9;
-    }
+<style>
 
-    
-    .header {
-      position: sticky;
-      top: 0;
-      
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
 
-    .header h1 a {
-      color: #010101;
-      text-decoration: none;
-    }
+/* FUNDO TECNOLÓGICO */
 
-    .header h1 a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+body{
+background:#000;
+color:#fff;
+min-height:100vh;
+}
 
-    nav {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      
-    }
+/* HEADER */
 
-    nav a {
-      text-decoration: none;
-      padding: 8px 16px;
-      background: #1e293b;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: bold;
-      
-    }
+.header{
+position:sticky;
+top:0;
+background:#111;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #222;
+}
 
-    nav a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+.header h1 a{
+text-decoration:none;
+padding:10px 20px;
+border:2px solid #ccff00;
+color:#fff;
+border-radius:6px;
+font-weight:600;
+transition:.3s;
+}
 
-  
-    main {
-      padding: 40px;
-    }
+.header h1 a:hover{
+background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+color:#000;
+}
 
-    .trimestre-box {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      
-    }
+/* MENU */
 
-    
-  </style>
+nav{
+display:flex;
+gap:15px;
+}
+
+nav a{
+text-decoration:none;
+padding:10px 20px;
+border:2px solid #ccff00;
+color:#fff;
+border-radius:6px;
+font-weight:600;
+transition:.3s;
+}
+
+nav a:hover{
+background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+color:#000;
+}
+
+/* MAIN */
+
+main{
+padding:60px;
+display:flex;
+justify-content:center;
+}
+
+/* CAIXA */
+
+.trimestre-box{
+background:#111;
+padding:40px;
+border-radius:12px;
+max-width:900px;
+box-shadow:0 0 25px rgba(0,255,150,0.2);
+position:relative;
+}
+
+/* TITULO COM GRADIENTE */
+
+.trimestre-box h2{
+font-size:42px;
+font-weight:800;
+text-align:center;
+margin-bottom:30px;
+
+background:linear-gradient(
+90deg,
+#00f5ff,
+#00ff88,
+#ccff00,
+#00f5ff
+);
+
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0%}
+100%{background-position:300%}
+}
+
+/* TEXTO */
+
+.trimestre-box p{
+color:#ccc;
+line-height:1.7;
+font-size:18px;
+}
+
+/* BOTÃO T2 */
+
+.next{
+display:flex;
+justify-content:center;
+margin-top:40px;
+}
+
+.next a{
+padding:12px 30px;
+border:2px solid #ccff00;
+text-decoration:none;
+color:#fff;
+border-radius:8px;
+font-weight:600;
+transition:.3s;
+}
+
+.next a:hover{
+background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+color:#000;
+}
+
+/* TRIÂNGULO ANIMADO */
+
+.shape{
+position:absolute;
+right:-70px;
+top:-70px;
+width:180px;
+height:180px;
+background:linear-gradient(135deg,#00f5ff,#00ff88,#ccff00);
+clip-path:polygon(50% 0%,100% 100%,0% 100%);
+animation:rotateShape 10s linear infinite;
+opacity:0.4;
+}
+
+@keyframes rotateShape{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
+
+/* RESPONSIVO */
+
+@media(max-width:800px){
+
+.header{
+flex-direction:column;
+gap:10px;
+}
+
+main{
+padding:30px;
+}
+
+.trimestre-box h2{
+font-size:30px;
+}
+
+.shape{
+display:none;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header class="header">
-  <h1><a href="../index.html">HOME</a></h1>
 
-  <nav>
-    <a href="trimestre1.html">Iº Trimestre.</a>
-    <a href="trimestre2.html">IIº Trimestre.</a>
-    <a href="trimestre3.html">IIIº Trimestre.</a>
-  </nav>
+<h1><a href="../index.html">HOME</a></h1>
+
+<nav>
+<a href="trimestre1.html">Iº Trimestre</a>
+<a href="trimestre2.html">IIº Trimestre</a>
+<a href="trimestre3.html">IIIº Trimestre</a>
+</nav>
+
 </header>
 
 <main>
-  <div class="trimestre-box">
-    
-    <center><h2>Introdução ao CSS</h2> </center><br>
 
-    <p>
-      O CSS (Cascading Style Sheets) é uma linguagem utilizada para definir a
-      aparência e o layout das páginas web. Ele trabalha em conjunto com o HTML,
-      sendo responsável por tornar os sites mais organizados, bonitos e agradáveis
-      ao utilizador.
-    </p>
+<div class="trimestre-box">
 
-    <br>
+<div class="shape"></div>
 
-    <p>
-      Com o CSS é possível alterar cores, fontes, tamanhos de texto, espaçamentos,
-      posicionamento de elementos e criar layouts responsivos que se adaptam a
-      diferentes tamanhos de ecrã.
-    </p>
+<h2>Introdução ao CSS</h2>
 
-    <br>
+<p>
+O CSS (Cascading Style Sheets) é uma linguagem utilizada para definir a
+aparência e o layout das páginas web. Ele trabalha em conjunto com o HTML,
+sendo responsável por tornar os sites mais organizados, bonitos e agradáveis
+ao utilizador.
+</p>
 
-    <p>
-      A principal vantagem do CSS é a separação entre conteúdo e estilo, o que
-      facilita a manutenção do site e melhora a experiência visual dos utilizadores.
-    </p>
+<br>
 
-  </div>    
+<p>
+Com o CSS é possível alterar cores, fontes, tamanhos de texto, espaçamentos,
+posicionamento de elementos e criar layouts responsivos que se adaptam a
+diferentes tamanhos de ecrã.
+</p>
+
+<br>
+
+<p>
+A principal vantagem do CSS é a separação entre conteúdo e estilo, o que
+facilita a manutenção do site e melhora a experiência visual dos utilizadores.
+</p>
+
+<div class="next">
+<a href="tt2.html">T2</a>
+</div>
+
+</div>
+
 </main>
-<nav>
-    <a href="tt2.html">T2</a>
-  </nav>
 
 </body>
 </html>
