@@ -1,139 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Trimestre</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Trimestre</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    body {
-      background: #f1f5f9;
-    }
+<style>
 
-    
-    .header {
-      position: sticky;
-      top: 0;
-      
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter', Arial;
+}
 
-    .header h1 a {
-      text-decoration: none;
-      padding: 8px 16px;
-      background: #1e293b;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: bold;
-    }
+body{
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
 
-    .header h1 a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+/* HEADER */
 
-    nav {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      
-    }
+.header{
+position:sticky;
+top:0;
+padding:20px;
+display:flex;
+justify-content:space-around;
+align-items:center;
+background:#000;
+border-bottom:2px solid #ccff00;
+}
 
-    nav a {
-      text-decoration: none;
-      padding: 8px 16px;
-      background: #1e293b;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: bold;
-      
-    }
+.header h1 a{
+text-decoration:none;
+font-weight:800;
+font-size:22px;
 
-    nav a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+background: linear-gradient(90deg,#00f5ff,#00ff88,#ccff00,#00f5ff);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
+}
 
-  
-    main {
-      padding: 40px;
-    }
+/* MENU */
 
-    .trimestre-box {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      
-    }
+nav{
+display:flex;
+gap:15px;
+}
 
-    .trimestre-box h2 {
-      margin-bottom: 25px;
-      color: #0f172a;
-    }
+nav a{
+text-decoration:none;
+padding:10px 20px;
+border-radius:40px;
+border:2px solid #ccff00;
+color:#fff;
+font-weight:bold;
+transition:.3s;
+}
 
-  
-    .trabalhos {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-    }
+nav a:hover{
+background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+color:#000;
+}
 
-    .trabalhos a {
-      padding: 15px 20px;
-      background: #0f172a;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
+/* ANIMAÇÃO GRADIENTE */
 
-    .trabalhos a:hover {
-      background: #858788;
-      color: #000;
-    }
-  </style>
+@keyframes gradientMove{
+0%{background-position:0%}
+100%{background-position:300%}
+}
+
+/* MAIN */
+
+main{
+padding:50px;
+display:flex;
+justify-content:center;
+}
+
+/* BOX DO TRIMESTRE */
+
+.trimestre-box{
+background:#111;
+padding:40px;
+border-radius:12px;
+border:2px solid #222;
+max-width:800px;
+width:100%;
+text-align:center;
+}
+
+.trimestre-box h2{
+margin-bottom:30px;
+font-size:36px;
+font-weight:800;
+
+background: linear-gradient(90deg,#00f5ff,#00ff88,#ccff00,#00f5ff);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
+}
+
+/* TRABALHOS */
+
+.trabalhos{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.trabalhos a{
+padding:18px 30px;
+border-radius:40px;
+border:2px solid #ccff00;
+text-decoration:none;
+color:#fff;
+font-weight:bold;
+font-size:18px;
+transition:.3s;
+}
+
+.trabalhos a:hover{
+background:linear-gradient(90deg,#00f5ff,#00ff88,#ccff00);
+color:#000;
+}
+
+/* TRIÂNGULO ANIMADO */
+
+.shape{
+position:absolute;
+right:120px;
+top:300px;
+width:200px;
+height:200px;
+background:linear-gradient(135deg,#00f5ff,#00ff88,#ccff00);
+clip-path:polygon(50% 0%,100% 100%,0% 100%);
+animation:rotateShape 10s linear infinite;
+}
+
+@keyframes rotateShape{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+.header{
+flex-direction:column;
+gap:10px;
+}
+
+main{
+padding:20px;
+}
+
+.shape{
+display:none;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-<header class="header">
-  <h1><a href="../index.html">HOME</a></h1>
+<div class="shape"></div>
 
-  <nav>
-    <a href="trimestre1.html">Iº Trimestre.</a>
-    <a href="trimestre2.html">IIº Trimestre.</a>
-    <a href="trimestre3.html">IIIº Trimestre.</a>
-  </nav>
+<header class="header">
+
+<h1><a href="../index.html">HOME</a></h1>
+
+<nav>
+<a href="trimestre1.html">Iº Trimestre</a>
+<a href="trimestre2.html">IIº Trimestre</a>
+<a href="trimestre3.html">IIIº Trimestre</a>
+</nav>
+
 </header>
 
 <main>
-  <div class="trimestre-box">
-    <h2><center>Trabalhos do Iº Trimestre</center></h2>
 
-    <div class="trabalhos">
-      <a href="t1.html">T1</a>
-      <a href="t2.html">T2</a>
-      <a href="t3.html">T3</a>
-      <a href="t4.html">T4</a>
-      <a href="t5.html">T5</a>
-      <a href="t6.html">T6</a>
-    </div>
-  </div>
+<div class="trimestre-box">
+
+<h2>Trabalhos do Iº Trimestre</h2>
+
+<div class="trabalhos">
+<a href="t1.html">T1</a>
+<a href="t2.html">T2</a>
+</div>
+
+</div>
+
 </main>
 
 </body>
