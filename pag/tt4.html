@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>ACM Med | Agendamento Multicanal + WhatsApp</title>
-    <!-- Google Fonts + Font Awesome 6 -->
+    <!-- Google Fonts + Font Awesome 6 (CDN estável) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -22,14 +22,13 @@
             scroll-behavior: smooth;
         }
 
-        /* Container padrão */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Navegação */
+        /* Navbar */
         .navbar {
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(8px);
@@ -95,13 +94,13 @@
             background: transparent;
             color: #0f7b6e;
             font-weight: 600;
+            transition: 0.2s;
         }
 
         .btn-outline-sm:hover {
             background: #0f7b6e10;
         }
 
-        /* Botões globais */
         .btn-primary {
             background: linear-gradient(95deg, #0f7b6e, #1b9e8a);
             border: none;
@@ -185,10 +184,6 @@
             margin-top: 20px;
         }
 
-        .stat {
-            font-weight: 700;
-        }
-
         .stat span {
             font-size: 1.7rem;
             color: #0f7b6e;
@@ -205,12 +200,20 @@
         }
 
         .hero-img i {
-            font-size: 11rem;
+            font-size: 9rem;
             color: #0f7b6e;
             opacity: 0.7;
         }
 
-        /* Cards seções */
+        .hero-img .wa-icon {
+            font-size: 3.2rem;
+            color: #25D366;
+            position: relative;
+            top: -20px;
+            left: 30px;
+        }
+
+        /* Cards */
         .section-title {
             text-align: center;
             font-size: 2.2rem;
@@ -255,17 +258,13 @@
             margin-bottom: 18px;
         }
 
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
-
         .whatsapp-highlight {
             background: linear-gradient(110deg, #eef9f5, #ffffff);
             border-left: 5px solid #25D366;
+            border-radius: 32px;
         }
 
-        /* Seção desenvolvimento */
+        /* Desenvolvimento */
         .dev-section {
             background: #ffffffd9;
             border-radius: 56px;
@@ -295,7 +294,7 @@
             color: #0f7b6e;
         }
 
-        /* Simulador agendamento */
+        /* Simulador */
         .simulator {
             background: white;
             border-radius: 48px;
@@ -388,6 +387,9 @@
             .dev-section {
                 padding: 32px 20px;
             }
+            .hero-img i {
+                font-size: 6rem;
+            }
         }
     </style>
 </head>
@@ -427,7 +429,7 @@
             </div>
             <div class="hero-img">
                 <i class="fas fa-head-side-medical"></i>
-                <i class="fas fa-comment-dots" style="font-size: 3rem; position: relative; top: -30px; left: 20px; color: #25D366;"></i>
+                <i class="fab fa-whatsapp wa-icon"></i>
             </div>
         </div>
     </section>
@@ -519,7 +521,7 @@
         </div>
     </div>
 
-    <!-- Simulador de Agendamento via WhatsApp (Demonstração prática) -->
+    <!-- Simulador de Agendamento via WhatsApp (COM NÚMERO ATUALIZADO: 947598315 -> +244 947598315) -->
     <div class="container" id="demo">
         <div class="simulator">
             <h2 style="font-size: 1.8rem; margin-bottom: 8px;">📲 Experimente o fluxo multicanal</h2>
@@ -563,7 +565,7 @@
     <div class="container" style="text-align: center; margin: 40px auto 20px;">
         <h3 style="font-size: 1.7rem;">Pronto para modernizar sua clínica?</h3>
         <p style="margin: 12px auto 28px; max-width: 600px;">Sistema ACM já está transformando a experiência de mais de 300 consultórios no Brasil. Suporte multicanal, WhatsApp integrado e equipe dedicada.</p>
-        <a href="#" class="btn-primary" style="background: #1f2f38; box-shadow: none;" onclick="alert('Obrigado pelo interesse! Nossa equipe entrará em contato.')"><i class="fas fa-headset"></i> Falar com especialista</a>
+        <button class="btn-primary" style="background: #1f2f38; box-shadow: none;" onclick="alert('Obrigado pelo interesse! Nossa equipe de especialistas entrará em contato em breve.')"><i class="fas fa-headset"></i> Falar com especialista</button>
     </div>
 </main>
 
@@ -575,7 +577,7 @@
         </div>
         <div>
             <strong>Canais</strong><br>
-            <i class="fab fa-whatsapp"></i> (11) 99999-8888<br>
+            <i class="fab fa-whatsapp"></i> +244 947 598 315<br>
             <i class="fas fa-envelope"></i> contato@acmmed.com<br>
             <i class="fas fa-headset"></i> Suporte 24/7
         </div>
@@ -592,7 +594,7 @@
 
 <script>
     (function() {
-        // função para abrir WhatsApp com mensagem pré-formatada
+        // Elementos do formulário
         const btnSimular = document.getElementById('btnWhatsAppSimular');
         const nomeInput = document.getElementById('nomePaciente');
         const especialidadeSelect = document.getElementById('especialidade');
@@ -600,54 +602,64 @@
         const horarioInput = document.getElementById('horario');
         const infoDiv = document.getElementById('infoMsg');
 
-        // Número de WhatsApp da clínica ACM (fictício mas funcional)
-        const phoneNumber = "5511999998888";  // número simbólico para demonstração
+        // Número atualizado: 947598315 (Angola -> código 244)
+        // Formato internacional sem o sinal de '+'
+        const phoneNumber = "244947598315";
 
         function formatarDataBR(dataISO) {
             if (!dataISO) return "data não informada";
-            const partes = dataISO.split('-');
-            if(partes.length === 3) return `${partes[2]}/${partes[1]}/${partes[0]}`;
+            const [ano, mes, dia] = dataISO.split('-');
+            if (ano && mes && dia) return `${dia}/${mes}/${ano}`;
             return dataISO;
         }
 
-        function gerarMensagem() {
-            let nome = nomeInput.value.trim();
+        // Gera mensagem com encoding correto para URL
+        function gerarMensagemWhatsApp() {
+            const nome = nomeInput.value.trim();
             if (nome === "") {
-                alert("Por favor, informe seu nome para agendamento.");
+                alert("Por favor, informe seu nome para o agendamento.");
                 return null;
             }
-            let especialidade = especialidadeSelect.value;
+            const especialidade = especialidadeSelect.value;
             let dataRaw = dataInput.value;
             if (dataRaw === "") {
-                alert("Escolha uma data para a consulta.");
+                alert("Selecione uma data para a consulta.");
                 return null;
             }
             let horario = horarioInput.value;
             if (horario === "") horario = "09:00";
             
             const dataFormatada = formatarDataBR(dataRaw);
-            const mensagem = `Olá! Gostaria de agendar uma consulta médica.%0A%0A*Paciente:* ${encodeURIComponent(nome)}%0A*Especialidade:* ${encodeURIComponent(especialidade)}%0A*Data:* ${encodeURIComponent(dataFormatada)}%0A*Horário:* ${encodeURIComponent(horario)}%0A%0A✅ Agendamento via sistema ACM Multicanal. Aguardo confirmação.`;
-            return mensagem;
+            
+            // Mensagem clara e objetiva
+            const mensagemTexto = `Olá! Gostaria de agendar uma consulta médica pelo sistema ACM.
+
+*Paciente:* ${nome}
+*Especialidade:* ${especialidade}
+*Data:* ${dataFormatada}
+*Horário:* ${horario}
+
+✅ Agendamento via sistema ACM Multicanal. Aguardo confirmação, por favor.`;
+            
+            return encodeURIComponent(mensagemTexto);
         }
 
         btnSimular.addEventListener('click', function(e) {
             e.preventDefault();
-            const mensagemPronta = gerarMensagem();
-            if (!mensagemPronta) return;
+            const mensagemCodificada = gerarMensagemWhatsApp();
+            if (!mensagemCodificada) return;
             
-            // Monta link do WhatsApp
-            const urlWhats = `https://wa.me/${phoneNumber}?text=${mensagemPronta}`;
-            // Abre em nova aba
+            const urlWhats = `https://wa.me/${phoneNumber}?text=${mensagemCodificada}`;
             window.open(urlWhats, '_blank');
             
-            // Feedback visual no info
-            infoDiv.innerHTML = `<i class="fab fa-whatsapp"></i> Redirecionando para o WhatsApp! Enviamos a mensagem de agendamento para a clínica ACM. Continue a conversa por lá. ✅`;
+            // Feedback visual
+            infoDiv.innerHTML = `<i class="fab fa-whatsapp"></i> ✅ Redirecionando para o WhatsApp! A mensagem de agendamento foi gerada. Conclua o envio e a clínica ACM retornará em breve.`;
             setTimeout(() => {
                 infoDiv.innerHTML = `<i class="fas fa-info-circle"></i> Ao clicar, você será redirecionado ao WhatsApp com uma mensagem pronta para a clínica ACM. Simulação real da integração.`;
-            }, 5000);
+            }, 6000);
         });
 
-        // Preencher data atual como sugestão (amanhã)
+        // Define data padrão: amanhã
         const hoje = new Date();
         const amanha = new Date(hoje);
         amanha.setDate(hoje.getDate() + 1);
