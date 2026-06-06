@@ -1,84 +1,341 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Trimestre</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado - Sistema Escolar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', Arial, sans-serif;
+        }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+        body {
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-    body {
-      background: #f1f5f9;
-    }
+        .header {
+            position: sticky;
+            top: 0;
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ccff00;
+        }
+
+        .header a {
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00f5ff, #00ff88, #ccff00, #00f5ff);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 6s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0%; }
+            100% { background-position: 300%; }
+        }
+
+        main {
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: #111;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 800px;
+            width: 100%;
+            border: 2px solid #222;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(90deg, #00f5ff, #00ff88, #ccff00, #00f5ff);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 6s linear infinite;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .media-card {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .media-card h3 {
+            color: #ccff00;
+            margin-bottom: 15px;
+        }
+
+        .media-card p {
+            font-size: 16px;
+            margin-top: 8px;
+            color: #ddd;
+        }
+
+        .media-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .media-item {
+            margin: 12px 0;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .media-info {
+            flex: 1;
+        }
+
+        .media-nome {
+            font-weight: bold;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .media-disciplina {
+            color: #888;
+            font-size: 13px;
+        }
+
+        .notas {
+            font-size: 11px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .media-valor {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .status {
+            font-size: 13px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .empty {
+            text-align: center;
+            color: #666;
+            padding: 40px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 12px;
+            border: 2px solid #ccff00;
+            border-radius: 50px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(90deg, #00f5ff, #00ff88, #ccff00);
+            color: #000;
+        }
+
+        .aprovado {
+            background: #1a3a2a;
+            border-left: 4px solid #00ff88;
+        }
+
+        .recurso {
+            background: #3a3a1a;
+            border-left: 4px solid #ccff00;
+        }
+
+        .reprovado {
+            background: #3a1a1a;
+            border-left: 4px solid #ff4444;
+        }
+
+        .status-text-aprovado {
+            color: #00ff88;
+        }
+
+        .status-text-recurso {
+            color: #ccff00;
+        }
+
+        .status-text-reprovado {
+            color: #ff4444;
+        }
+
+        .shape {
+            position: absolute;
+            right: 80px;
+            top: 200px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #00f5ff, #00ff88, #ccff00);
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            animation: rotateShape 10s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotateShape {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            main { padding: 20px; }
+            .shape { display: none; }
+            .container { padding: 20px; }
+            .media-item { flex-direction: column; text-align: center; }
+            .media-valor { margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shape"></div>
+
+    <header class="header">
+        <a href="ttt3.html">📈 Resultado</a>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Médias dos Alunos</h1>
+            <div class="subtitle">Desempenho (notas de 0 a 20)</div>
 
     
-    .header {
-      position: sticky;
-      top: 0;
-      
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
+            <div id="mediaList" class="media-list">
+                <div class="empty">Nenhum aluno cadastrado</div>
+            </div>
 
-    .header h1 a {
-      color: #010101;
-      text-decoration: none;
-    }
+            <div class="nav-buttons">
+                <a href="ttt1.html" class="nav-btn">📝 Voltar ao Formulário</a>
+                <a href="ttt2.html" class="nav-btn">📊 Ver Tabela</a>
+            </div>
+        </div>
+    </main>
 
-    .header h1 a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+    <script>
+        function getAlunos() {
+            const saved = localStorage.getItem('alunos');
+            return saved ? JSON.parse(saved) : [];
+        }
 
-    nav {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      
-    }
+        function calcularMedia(nota1, nota2, nota3) {
+            return (nota1 + nota2 + nota3) / 3;
+        }
 
-    nav a {
-      text-decoration: none;
-      padding: 8px 16px;
-      background: #1e293b;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: bold;
-      
-    }
+        function getStatus(media) {
+            if (media >= 10) return 'Aprovado';
+            if (media >= 8) return 'Recurso';
+            return 'Reprovado';
+        }
 
-    nav a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+        function getStatusClass(status) {
+            if (status === 'Aprovado') return 'aprovado';
+            if (status === 'Recurso') return 'recurso';
+            return 'reprovado';
+        }
 
-  
-  </style>
-</head>
+        function getStatusTextClass(status) {
+            if (status === 'Aprovado') return 'status-text-aprovado';
+            if (status === 'Recurso') return 'status-text-recurso';
+            return 'status-text-reprovado';
+        }
 
-<body>
+        function updateResults() {
+            const alunos = getAlunos();
+            const mediaList = document.getElementById('mediaList');
 
-<header class="header">
-  <h1><a href="../index.html">HOME</a></h1>
+            if (alunos.length === 0) {
+                mediaList.innerHTML = '<div class="empty">Nenhum aluno cadastrado</div>';
+                document.getElementById('totalAlunos').textContent = 'Total de alunos: 0';
+                document.getElementById('mediaGeral').textContent = 'Média geral: 0';
+                document.getElementById('aprovados').textContent = '✅ Aprovados (≥10): 0';
+                document.getElementById('recurso').textContent = '⚠️ Recurso (8 a 9): 0';
+                document.getElementById('reprovados').textContent = '❌ Reprovados (0 a 7): 0';
+                return;
+            }
 
-  <nav>
-    <a href="trimestre1.html">Iº Trimestre.</a>
-    <a href="trimestre2.html">IIº Trimestre.</a>
-    <a href="trimestre3.html">IIIº Trimestre.</a>
-  </nav>
-</header>
+            let somaMedias = 0;
+            let aprovadosCount = 0;
+            let recursoCount = 0;
+            let reprovadosCount = 0;
 
-<main>
+            mediaList.innerHTML = alunos.map(aluno => {
+                const media = calcularMedia(aluno.nota1, aluno.nota2, aluno.nota3);
+                somaMedias += media;
+                const status = getStatus(media);
+                const cardClass = getStatusClass(status);
+                const textClass = getStatusTextClass(status);
+                
+                if (status === 'Aprovado') aprovadosCount++;
+                else if (status === 'Recurso') recursoCount++;
+                else reprovadosCount++;
 
+                return `
+                    <div class="media-item ${cardClass}">
+                        <div class="media-info">
+                            <div class="media-nome">${aluno.nome}</div>
+                            <div class="media-disciplina">${aluno.disciplina}</div>
+                            <div class="notas">Notas: ${aluno.nota1.toFixed(1)} | ${aluno.nota2.toFixed(1)} | ${aluno.nota3.toFixed(1)}</div>
+                        </div>
+                        <div>
+                            <span class="media-valor ${textClass}">${media.toFixed(1)}</span>
+                            <span class="status ${textClass}">(${status})</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
 
+            const mediaGeral = somaMedias / alunos.length;
+
+            document.getElementById('totalAlunos').textContent = `Total de alunos: ${alunos.length}`;
+            document.getElementById('mediaGeral').textContent = `Média geral: ${mediaGeral.toFixed(1)}`;
+            document.getElementById('aprovados').textContent = `✅ Aprovados (≥10): ${aprovadosCount}`;
+            document.getElementById('recurso').textContent = `⚠️ Recurso (8 a 9): ${recursoCount}`;
+            document.getElementById('reprovados').textContent = `❌ Reprovados (0 a 7): ${reprovadosCount}`;
+        }
+
+        updateResults();
+    </script>
 </body>
 </html>
