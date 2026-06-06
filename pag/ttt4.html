@@ -1,84 +1,674 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Trimestre</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>ACM Med | Agendamento Multicanal + WhatsApp</title>
+    <!-- Google Fonts + Font Awesome 6 (CDN estável) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f6fafd 0%, #edf2f9 100%);
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
 
-    body {
-      background: #f1f5f9;
-    }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    
-    .header {
-      position: sticky;
-      top: 0;
-      
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+        }
 
-    .header h1 a {
-      color: #010101;
-      text-decoration: none;
-    }
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
 
-    .header h1 a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 1.7rem;
+            letter-spacing: -0.3px;
+        }
 
-    nav {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      
-    }
+        .logo i {
+            color: #0f7b6e;
+            font-size: 2rem;
+        }
 
-    nav a {
-      text-decoration: none;
-      padding: 8px 16px;
-      background: #1e293b;
-      color: #fff;
-      border-radius: 6px;
-      font-weight: bold;
-      
-    }
+        .logo span {
+            background: linear-gradient(135deg, #0f7b6e, #2c9f8b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-    nav a:hover {
-      background: #8c8d8d;
-      color: #000;
-    }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-  
-  </style>
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2c3e4e;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #0f7b6e;
+        }
+
+        .btn-outline-sm {
+            border: 1.5px solid #0f7b6e;
+            padding: 6px 18px;
+            border-radius: 40px;
+            background: transparent;
+            color: #0f7b6e;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .btn-outline-sm:hover {
+            background: #0f7b6e10;
+        }
+
+        .btn-primary {
+            background: linear-gradient(95deg, #0f7b6e, #1b9e8a);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            box-shadow: 0 8px 18px rgba(15, 123, 110, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(95deg, #0b685d, #148a77);
+            box-shadow: 0 12px 22px rgba(15, 123, 110, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            box-shadow: 0 6px 14px rgba(37, 211, 102, 0.25);
+        }
+
+        .btn-whatsapp:hover {
+            background: #20b859;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 70px 0 60px;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            background: #e0f2ef;
+            color: #0f7b6e;
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            background: linear-gradient(125deg, #1a2c3e, #2c5a6e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #2c4b5e;
+            margin-bottom: 32px;
+            max-width: 90%;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 28px;
+            margin-top: 20px;
+        }
+
+        .stat span {
+            font-size: 1.7rem;
+            color: #0f7b6e;
+            display: block;
+            font-weight: 800;
+        }
+
+        .hero-img {
+            flex: 1;
+            background: radial-gradient(circle at 30% 20%, rgba(15,123,110,0.08), transparent);
+            border-radius: 48px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero-img i {
+            font-size: 9rem;
+            color: #0f7b6e;
+            opacity: 0.7;
+        }
+
+        .hero-img .wa-icon {
+            font-size: 3.2rem;
+            color: #25D366;
+            position: relative;
+            top: -20px;
+            left: 30px;
+        }
+
+        /* Cards */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            letter-spacing: -0.3px;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #4b6b7e;
+            max-width: 680px;
+            margin: -20px auto 48px auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 32px;
+            padding: 28px 20px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+            transition: all 0.25s;
+            text-align: center;
+            border: 1px solid rgba(15, 123, 110, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #0f7b6e30;
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2.6rem;
+            color: #0f7b6e;
+            margin-bottom: 18px;
+        }
+
+        .whatsapp-highlight {
+            background: linear-gradient(110deg, #eef9f5, #ffffff);
+            border-left: 5px solid #25D366;
+            border-radius: 32px;
+        }
+
+        /* Desenvolvimento */
+        .dev-section {
+            background: #ffffffd9;
+            border-radius: 56px;
+            padding: 48px 40px;
+            margin: 70px 0;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.03);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin: 40px 0 20px;
+        }
+
+        .tech-badge {
+            background: #eef2f5;
+            padding: 8px 18px;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .tech-badge i {
+            margin-right: 8px;
+            color: #0f7b6e;
+        }
+
+        /* Simulador */
+        .simulator {
+            background: white;
+            border-radius: 48px;
+            padding: 40px 32px;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.05);
+            margin: 40px 0 60px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 28px;
+            border: 1.5px solid #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            transition: 0.2s;
+            background: #fefefe;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #0f7b6e;
+            box-shadow: 0 0 0 3px rgba(15,123,110,0.2);
+        }
+
+        .btn-demo {
+            width: 100%;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .demo-info {
+            background: #f0f9f6;
+            border-radius: 28px;
+            padding: 16px 20px;
+            margin-top: 24px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        footer {
+            background: #0f2a2f;
+            color: #cbdbe2;
+            padding: 48px 0 32px;
+            margin-top: 60px;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        @media (max-width: 800px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-grid {
+                flex-direction: column;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 0 20px;
+            }
+            .dev-section {
+                padding: 32px 20px;
+            }
+            .hero-img i {
+                font-size: 6rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<header class="header">
-  <h1><a href="../index.html">HOME</a></h1>
-
-  <nav>
-    <a href="trimestre1.html">Iº Trimestre.</a>
-    <a href="trimestre2.html">IIº Trimestre.</a>
-    <a href="trimestre3.html">IIIº Trimestre.</a>
-  </nav>
-</header>
+<nav class="navbar">
+    <div class="container nav-flex">
+        <div class="logo">
+            <i class="fas fa-calendar-check"></i>
+            <span>ACM<span style="color:#1a2c3e;">·Med</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#multicanal">Canais</a>
+            <a href="#whatsapp-integration">WhatsApp</a>
+            <a href="#dev">Desenvolvimento</a>
+            <a href="#demo" class="btn-outline-sm">Teste agora</a>
+        </div>
+    </div>
+</nav>
 
 <main>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-robot"></i> IA + Multicanal</div>
+                <h1>Agendamento médico <br>sem fronteiras, com <span style="color:#0f7b6e;">WhatsApp integrado</span></h1>
+                <p>A plataforma ACM revoluciona a gestão de consultas: suporte omnichannel, lembretes inteligentes e conexão nativa com o WhatsApp Business. Reduza faltas e encante pacientes.</p>
+                <div class="hero-stats">
+                    <div class="stat"><span>98%</span> de satisfação</div>
+                    <div class="stat"><span>4x</span> mais confirmações</div>
+                    <div class="stat"><span>0</span> burocracia</div>
+                </div>
+                <div style="margin-top: 32px;">
+                    <a href="#demo" class="btn-primary"><i class="fab fa-whatsapp"></i> Agendar via WhatsApp</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <i class="fas fa-head-side-medical"></i>
+                <i class="fab fa-whatsapp wa-icon"></i>
+            </div>
+        </div>
+    </section>
 
+    <!-- Seção Multicanal -->
+    <div class="container" id="multicanal">
+        <h2 class="section-title">📱 Suporte multicanal completo</h2>
+        <div class="section-sub">Seus pacientes escolhem como agendar: web, telefone, app ou WhatsApp — tudo sincronizado em tempo real.</div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-globe"></i></div>
+                <h3>Portal Web</h3>
+                <p>Interface responsiva e intuitiva para agendamento 24/7, com painel administrativo e gestão de horários.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3>WhatsApp Business</h3>
+                <p>Chatbot para agendamento, reenvio de confirmação, lembretes automáticos e troca de documentos.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-phone-alt"></i></div>
+                <h3>Central Telefônica</h3>
+                <p>Atendimento humanizado com integração ao sistema CRM e agenda unificada.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Aplicativo Próprio</h3>
+                <p>App ACM para iOS/Android com notificações push e lembretes de consulta.</p>
+            </div>
+        </div>
+    </div>
 
+    <!-- Destaque WhatsApp Integration -->
+    <div class="container" id="whatsapp-integration">
+        <div class="whatsapp-highlight card" style="text-align: left; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;">
+            <div style="flex:2">
+                <i class="fab fa-whatsapp" style="font-size: 2.4rem; color:#25D366; margin-bottom: 12px; display: inline-block;"></i>
+                <h3 style="font-size: 1.8rem;">Integração total com WhatsApp <span style="background:#25D36610; padding: 2px 12px; border-radius: 40px; font-size: 0.9rem;">API Oficial</span></h3>
+                <p style="margin: 12px 0;">Converse com seus pacientes pelo canal preferido deles. O ACM sincroniza mensagens, envia lembretes automáticos, comprovantes e permite reagendamento via fluxo conversacional. Tudo com criptografia e em conformidade com a LGPD.</p>
+                <ul style="margin-top: 16px; list-style: none;">
+                    <li><i class="fas fa-check-circle" style="color:#0f7b6e;"></i> Lembretes de consulta + confirmação com 1 clique</li>
+                    <li><i class="fas fa-check-circle" style="color:#0f7b6e;"></i> Envio de receitas e atestados por mensagem</li>
+                    <li><i class="fas fa-check-circle" style="color:#0f7b6e;"></i> Fluxo inteligente de agendamento (especialidade, data, horário)</li>
+                    <li><i class="fas fa-check-circle" style="color:#0f7b6e;"></i> Dashboard unificado Web + WhatsApp</li>
+                </ul>
+            </div>
+            <div style="flex:1; text-align: center;">
+                <i class="fab fa-whatsapp" style="font-size: 5rem; color:#25D366; opacity: 0.9;"></i>
+                <div style="background: #e9f9ef; border-radius: 28px; padding: 12px; margin-top: 12px;">
+                    <i class="fas fa-comment-dots"></i> "Dr. sua consulta está confirmada para amanhã às 15h"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção Desenvolvimento e Arquitetura (ACM) -->
+    <div class="container" id="dev">
+        <div class="dev-section">
+            <h2 class="section-title" style="margin-bottom: 16px;">🚀 Desenvolvimento ACM: inovação com propósito</h2>
+            <p style="text-align: center; max-width: 780px; margin: 0 auto 20px auto;">Construído por especialistas em healthtech, o sistema ACM nasceu para eliminar filas e conectar clínicas e pacientes com tecnologia de ponta.</p>
+            <div class="tech-stack">
+                <span class="tech-badge"><i class="fab fa-react"></i> React + Next.js</span>
+                <span class="tech-badge"><i class="fab fa-node-js"></i> Node.js (NestJS)</span>
+                <span class="tech-badge"><i class="fas fa-database"></i> PostgreSQL + Redis</span>
+                <span class="tech-badge"><i class="fab fa-docker"></i> Docker / Kubernetes</span>
+                <span class="tech-badge"><i class="fab fa-whatsapp"></i> Cloud API (Meta)</span>
+                <span class="tech-badge"><i class="fas fa-cloud"></i> AWS / Azure</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 28px; margin-top: 48px;">
+                <div>
+                    <i class="fas fa-shield-alt" style="font-size: 2rem; color:#0f7b6e;"></i>
+                    <h4>Segurança e LGPD</h4>
+                    <p>Autenticação 2FA, dados anonimizados e auditoria completa. Conformidade com a Lei Geral de Proteção de Dados.</p>
+                </div>
+                <div>
+                    <i class="fas fa-robot" style="font-size: 2rem; color:#0f7b6e;"></i>
+                    <h4>IA para redução de faltas</h4>
+                    <p>Machine learning prevê risco de ausência e aciona lembretes personalizados por WhatsApp.</p>
+                </div>
+                <div>
+                    <i class="fas fa-charging-station" style="font-size: 2rem; color:#0f7b6e;"></i>
+                    <h4>API-first & Webhooks</h4>
+                    <p>Integração simples com ERPs, sistemas de clínica e gateways de pagamento. Pronto para escalar.</p>
+                </div>
+            </div>
+            <div style="background: #e2f0ed; border-radius: 28px; padding: 20px; margin-top: 40px; text-align: center;">
+                <i class="fas fa-code-branch"></i> <strong>Metodologia ágil & CI/CD</strong> — entregas contínuas, monitoramento ativo e suporte 24/7 para clínicas parceiras.
+            </div>
+        </div>
+    </div>
+
+    <!-- Simulador de Agendamento via WhatsApp (CORRIGIDO - encoding correto) -->
+    <div class="container" id="demo">
+        <div class="simulator">
+            <h2 style="font-size: 1.8rem; margin-bottom: 8px;">📲 Experimente o fluxo multicanal</h2>
+            <p style="margin-bottom: 28px;">Simule um agendamento e veja como a integração com WhatsApp agiliza tudo. Preencha os dados e clique no botão para iniciar a conversa.</p>
+            <form id="agendamentoForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Nome completo</label>
+                        <input type="text" id="nomePaciente" placeholder="Maria da Silva" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-stethoscope"></i> Especialidade</label>
+                        <select id="especialidade">
+                            <option value="Clínico Geral">Clínico Geral</option>
+                            <option value="Cardiologia">Cardiologia</option>
+                            <option value="Dermatologia">Dermatologia</option>
+                            <option value="Pediatria">Pediatria</option>
+                            <option value="Ortopedia">Ortopedia</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar-alt"></i> Data desejada</label>
+                        <input type="date" id="dataConsulta" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-clock"></i> Horário</label>
+                        <input type="time" id="horario" value="09:00" required>
+                    </div>
+                </div>
+                <button type="button" id="btnWhatsAppSimular" class="btn-primary btn-whatsapp btn-demo"><i class="fab fa-whatsapp"></i> Agendar agora via WhatsApp</button>
+            </form>
+            <div class="demo-info" id="infoMsg">
+                <i class="fas fa-info-circle"></i> Ao clicar, você será redirecionado ao WhatsApp com uma mensagem pronta para a clínica ACM. Simulação real da integração.
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action final -->
+    <div class="container" style="text-align: center; margin: 40px auto 20px;">
+        <h3 style="font-size: 1.7rem;">Pronto para modernizar sua clínica?</h3>
+        <p style="margin: 12px auto 28px; max-width: 600px;">Sistema ACM já está transformando a experiência de mais de 300 consultórios no Brasil. Suporte multicanal, WhatsApp integrado e equipe dedicada.</p>
+        <button class="btn-primary" style="background: #1f2f38; box-shadow: none;" onclick="alert('Obrigado pelo interesse! Nossa equipe de especialistas entrará em contato em breve.')"><i class="fas fa-headset"></i> Falar com especialista</button>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div>
+            <div class="footer-logo"><i class="fas fa-calendar-check"></i> ACM·Med</div>
+            <p style="margin-top: 12px; max-width: 280px;">Agendamento inteligente, saúde mais acessível. Tecnologia que conecta.</p>
+        </div>
+        <div>
+            <strong>Canais</strong><br>
+            <i class="fab fa-whatsapp"></i> (11) 99999-8888<br>
+            <i class="fas fa-envelope"></i> contato@acmmed.com<br>
+            <i class="fas fa-headset"></i> Suporte 24/7
+        </div>
+        <div>
+            <strong>Desenvolvimento</strong><br>
+            Versão 2.5 · API WhatsApp Business<br>
+            ISO 27001 · LGPD Ready
+        </div>
+    </div>
+    <div class="container" style="text-align: center; margin-top: 48px; font-size: 0.8rem;">
+        © 2025 ACM HealthTech — Inovação em agendamento multicanal.
+    </div>
+</footer>
+
+<script>
+    (function() {
+        // Elementos do formulário
+        const btnSimular = document.getElementById('btnWhatsAppSimular');
+        const nomeInput = document.getElementById('nomePaciente');
+        const especialidadeSelect = document.getElementById('especialidade');
+        const dataInput = document.getElementById('dataConsulta');
+        const horarioInput = document.getElementById('horario');
+        const infoDiv = document.getElementById('infoMsg');
+
+        // Número oficial da clínica ACM para demonstração (WhatsApp)
+        const phoneNumber = "5511999998888";
+
+        function formatarDataBR(dataISO) {
+            if (!dataISO) return "data não informada";
+            const [ano, mes, dia] = dataISO.split('-');
+            if (ano && mes && dia) return `${dia}/${mes}/${ano}`;
+            return dataISO;
+        }
+
+        // Função CORRIGIDA: gera mensagem com encoding total usando encodeURIComponent
+        function gerarMensagemWhatsApp() {
+            const nome = nomeInput.value.trim();
+            if (nome === "") {
+                alert("Por favor, informe seu nome para o agendamento.");
+                return null;
+            }
+            const especialidade = especialidadeSelect.value;
+            let dataRaw = dataInput.value;
+            if (dataRaw === "") {
+                alert("Selecione uma data para a consulta.");
+                return null;
+            }
+            let horario = horarioInput.value;
+            if (horario === "") horario = "09:00";
+            
+            const dataFormatada = formatarDataBR(dataRaw);
+            
+            // Construção da mensagem com quebras de linha reais (\n) - será codificada depois
+            const mensagemTexto = `Olá! Gostaria de agendar uma consulta médica pelo sistema ACM.
+
+*Paciente:* ${nome}
+*Especialidade:* ${especialidade}
+*Data:* ${dataFormatada}
+*Horário:* ${horario}
+
+✅ Agendamento via sistema ACM Multicanal. Aguardo confirmação, por favor.`;
+            
+            // Codifica toda a mensagem corretamente para URL (substitui espaços, acentos, quebras de linha)
+            return encodeURIComponent(mensagemTexto);
+        }
+
+        btnSimular.addEventListener('click', function(e) {
+            e.preventDefault();
+            const mensagemCodificada = gerarMensagemWhatsApp();
+            if (!mensagemCodificada) return;
+            
+            // Constrói link válido do WhatsApp
+            const urlWhats = `https://wa.me/${phoneNumber}?text=${mensagemCodificada}`;
+            window.open(urlWhats, '_blank');
+            
+            // Feedback visual
+            infoDiv.innerHTML = `<i class="fab fa-whatsapp"></i> ✅ Redirecionando para o WhatsApp! A mensagem de agendamento foi gerada. Conclua o envio e a clínica ACM retornará em breve.`;
+            setTimeout(() => {
+                infoDiv.innerHTML = `<i class="fas fa-info-circle"></i> Ao clicar, você será redirecionado ao WhatsApp com uma mensagem pronta para a clínica ACM. Simulação real da integração.`;
+            }, 6000);
+        });
+
+        // Define data padrão: amanhã
+        const hoje = new Date();
+        const amanha = new Date(hoje);
+        amanha.setDate(hoje.getDate() + 1);
+        const ano = amanha.getFullYear();
+        const mes = String(amanha.getMonth() + 1).padStart(2, '0');
+        const dia = String(amanha.getDate()).padStart(2, '0');
+        if(dataInput) dataInput.value = `${ano}-${mes}-${dia}`;
+    })();
+</script>
 </body>
 </html>
